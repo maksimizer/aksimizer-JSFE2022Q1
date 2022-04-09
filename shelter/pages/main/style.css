@@ -22,7 +22,7 @@ body {
     padding: 60px 40px;
     display: flex;
     justify-content: space-between;
-    background: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
+    background: url(/shelter/assets/images/start-screen-gradient-background.jpg);
 }
 .logo {
     display: flex;
@@ -83,4 +83,12 @@ body {
 }
 .nav-link-active {
     border-bottom: 2px solid #F1CDB3;;
+}
+
+/* start screen*/
+.start-screen-container {
+    height: 728px;
+    background: url(/shelter/assets/images/start-screen-gradient-background.jpg);
+    background-position: center -180px;
+    display: flex;
 }
