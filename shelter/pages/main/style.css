@@ -69,6 +69,10 @@ body {
 .nav-link {
     text-decoration: none;
     transition: 0.5s;
+     padding-bottom: 4px;
+}
+
+.nav-link, .start-screen-subheading {
     font-family: 'Arial';
     font-style: normal;
     font-weight: 400;
@@ -76,8 +80,8 @@ body {
     line-height: 160%;
     /* identical to box height, or 24px */
     color: #CDCDCD;
-    padding-bottom: 4px;
 }
+
 .nav-link:hover {
     color: #FAFAFA;
 }
@@ -91,4 +95,30 @@ body {
     background: url(/shelter/assets/images/start-screen-gradient-background.jpg);
     background-position: center -180px;
     display: flex;
+}
+.start-screen-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 42px;
+    margin-top: 163px;
+}
+.start-screen-heading {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 57px;
+    /* or 57px */
+    color: #FFFFFF;
+    width: 310px;
+    margin: 0;
+}
+.start-screen-subheading{
+    width: 460px;
+    height: 72px;
+}
+
+/* buttons */
+.button-primary {
+    
 }
