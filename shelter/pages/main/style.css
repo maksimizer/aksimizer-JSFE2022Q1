@@ -205,7 +205,7 @@ body {
     padding-bottom: 100px;
     background: #F6F6F6;
 }
-#pets {
+#pets, #help {
     width: 400px;
     height: 90px;
     font-family: 'Georgia';
@@ -317,4 +317,33 @@ body {
     background-color: #FDDCC4;
     transition: 0.5s;
     border: 2px solid #FDDCC4;
+}
+
+/* HELP */
+
+.help-container {
+    padding-top: 80px;
+}
+.help-list-container {
+    padding-top: 60px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px 120px;
+}
+.help-item {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+    /* identical to box height, or 23px */
+    text-align: center;
+    letter-spacing: 0.06em;
+    /* color-dark-l */
+    color: #545454;
+}
+.help-item p {
+    margin-top: 25px;
 }
