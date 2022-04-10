@@ -166,6 +166,7 @@ body {
     padding-bottom: 100px;
     justify-content: center;
     column-gap: 120px;
+    background: #FFFFFF;
 }
 .about-image {
     background-image: url(/shelter/assets/images/about-pets.png);
@@ -202,7 +203,7 @@ body {
     align-items: center;
     padding-top: 80px;
     padding-bottom: 100px;
-
+    background: #F6F6F6;
 }
 #pets {
     width: 400px;
@@ -224,10 +225,16 @@ body {
 .slider-container {
     display: flex;  
     justify-content: center;
+    align-items: center;
     width: 100%;
     height: 435px;
     margin-top: 60px;
     margin-bottom: 60px;
+    column-gap: 53px;
+}
+.cards-container {
+    display: flex;
+    height: 100%;
 }
 .card-2 {
     margin-left: 90px;
@@ -283,4 +290,31 @@ body {
     background: #FDDCC4;
     cursor: pointer;
     transform: translatey(-0.45em);
+    border: 2px solid #FDDCC4;
+}
+.card:hover .button-secondary{
+    background: #FDDCC4;
+    cursor: pointer;
+    border: 2px solid #FDDCC4;
+}
+.left-btn, .right-btn {
+    width: 52px;
+    height: 52px;
+    border: 2px solid #F1CDB3;
+    border-radius: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.5s;
+} 
+.left-btn {
+    background-image: url(/shelter/assets/images/Arrow.png);   
+}
+.right-btn {
+    background-image: url(/shelter/assets/images/Arrow.png);
+    transform: rotate(-180deg)
+}
+.left-btn:hover, .right-btn:hover {
+    background-color: #FDDCC4;
+    transition: 0.5s;
+    border: 2px solid #FDDCC4;
 }
