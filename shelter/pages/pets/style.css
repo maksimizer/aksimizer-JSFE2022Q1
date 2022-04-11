@@ -17,14 +17,16 @@ body {
     overflow-x: hidden;
 }
 /*Header*/
+header {
+    position: sticky;
+    top: 0;
+}
 .header-container {
     height: 120px;
     display: flex;
     justify-content: space-between;
     background: #FFFFFF;
     padding-top: 30px;
-    position: sticky;
-    top: 0;
 }
 .logo {
     display: flex;
