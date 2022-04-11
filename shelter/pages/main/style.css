@@ -102,7 +102,7 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 41px;
-    margin-top: 164px;
+    margin-top: 166px;
 }
 .start-screen-heading {
     font-family: 'Georgia';
@@ -410,6 +410,10 @@ body {
     display: flex;
     column-gap: 15px;
     justify-content: center;
+    transition: 0.5s;
+}
+.card-number-p:hover {
+    background: #FDDCC4;
 }
 
 .card-link {
