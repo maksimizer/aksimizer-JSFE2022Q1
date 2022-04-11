@@ -92,7 +92,7 @@ body {
 
 /* start screen*/
 .start-screen-container {
-    height: 730px;
+    height: 728px;
     background: url(/shelter/assets/images/start-screen-gradient-background.jpg);
     background-position: center -180px;
     display: flex;
@@ -102,7 +102,7 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 41px;
-    margin-top: 166px;
+    margin-top: 164px;
 }
 .start-screen-heading {
     font-family: 'Georgia';
@@ -122,7 +122,7 @@ body {
 }
 .start-screen-img {
     width: 698px;   
-    height: 728px;
+    height: 726px;
     background-image: url(/shelter/assets/images/start-screen-puppy.png);
 
 }
