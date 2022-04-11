@@ -22,7 +22,7 @@ body {
     padding: 60px 40px;
     display: flex;
     justify-content: space-between;
-    background: url(//shelter/assets/images/start-screen-gradient-background.jpg);
+    background: url(../../assets/images/start-screen-gradient-background.jpg);
 }
 .logo {
     display: flex;
@@ -93,7 +93,7 @@ body {
 /* start screen*/
 .start-screen-container {
     height: 728px;
-    background: url(//shelter/assets/images/start-screen-gradient-background.jpg);
+    background: url(../../assets/images/start-screen-gradient-background.jpg);
     background-position: center -180px;
     display: flex;
     column-gap: 42px;
@@ -123,7 +123,7 @@ body {
 .start-screen-img {
     width: 698px;   
     height: 726px;
-    background-image: url(//shelter/assets/images/start-screen-puppy.png);
+    background-image: url(../../assets/images/start-screen-puppy.png);
 
 }
 
@@ -169,7 +169,7 @@ body {
     background: #FFFFFF;
 }
 .about-image {
-    background-image: url(//shelter/assets/images/about-pets.png);
+    background-image: url(../../assets/images/about-pets.png);
     width: 300px;
     height: 408px;
 }
@@ -308,10 +308,10 @@ body {
     transition: 0.5s;
 } 
 .left-btn {
-    background-image: url(//shelter/assets/images/Arrow.png);   
+    background-image: url(../../assets/images/Arrow.png);   
 }
 .right-btn {
-    background-image: url(//shelter/assets/images/Arrow.png);
+    background-image: url(../../assets/images/Arrow.png);
     transform: rotate(-180deg)
 }
 .left-btn:hover, .right-btn:hover {
@@ -365,7 +365,7 @@ body {
 .donation-image {
     width: 505px;
     height: 261px;
-    background-image: url(//shelter/assets/images/donation-dog.png);
+    background-image: url(../../assets/images/donation-dog.png);
     margin-left: 1px;
 }
 .donation-content {
@@ -431,7 +431,7 @@ body {
 }
 /*footer*/
 .footer-container {
-    background: url(//shelter/assets/images/footer-gradient-background.jpg);
+    background: url(../../assets/images/footer-gradient-background.jpg);
     height: 350px;
     display: flex;
     padding-top: 40px;
@@ -468,7 +468,7 @@ body {
     width: 302px;
 }
 .footer-img {
-    background-image: url(//shelter/assets/images/footer-puppy.png);
+    background-image: url(../../assets/images/footer-puppy.png);
     width: 300px;
     height: 310px;
     margin-left: 4px;
