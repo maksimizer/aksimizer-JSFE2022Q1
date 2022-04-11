@@ -92,7 +92,7 @@ body {
 
 /* start screen*/
 .start-screen-container {
-    height: 728px;
+    height: 730px;
     background: url(/shelter/assets/images/start-screen-gradient-background.jpg);
     background-position: center -180px;
     display: flex;
@@ -183,7 +183,7 @@ body {
     line-height: 130%;
     /* or 45px */
     letter-spacing: 0.06em;
-    margin-top: 15px;
+    margin-top: 14px;
     margin-bottom: 0;
 }
 .about-content{
@@ -365,6 +365,7 @@ body {
     width: 505px;
     height: 261px;
     background-image: url(/shelter/assets/images/donation-dog.png);
+    margin-left: 1px;
 }
 .donation-content {
     width: 380px;
@@ -399,7 +400,30 @@ body {
     /* or 150% */
     color: #B2B2B2;
 }
+.card-number-p {
+    margin-top: 2px;
+    width: 349px;
+    height: 43px;
+    background: #F1CDB3;
+    border-radius: 9px;
+    margin: 0;
+    display: flex;
+    column-gap: 15px;
+    justify-content: center;
+}
 
+.card-link {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+    /* identical to box height, or 23px */
+    letter-spacing: 0.06em;
+    color: #545454;
+    text-decoration: none;
+    margin-top: 10px;
+}
 /*footer*/
 .footer-container {
     background: url(/shelter/assets/images/footer-gradient-background.jpg);
@@ -448,7 +472,11 @@ body {
     display: flex;
     column-gap: 20px;
     margin: 0;
-    align-items: center;   
+    align-items: center;
+    transition: 0.5s;   
+}
+.footer-p:hover {
+    transform: translatey(-0.25em);
 }
 .email-p {
     margin-top: 41px;
