@@ -59,11 +59,14 @@ header {
     color: #292929;
     margin: 0;
 }
-.logo-link-title {
+.logo-link {
+    text-decoration: none;
+}
+.logo-title {
     text-decoration: none;
     color: #545454;
 }
-.logo-link-subtitle{
+.logo-subtitle{
     text-decoration: none;
     color: #292929;
 }
