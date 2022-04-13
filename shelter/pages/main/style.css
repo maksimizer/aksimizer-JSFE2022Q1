@@ -315,6 +315,7 @@ body {
     transform: rotate(-180deg)
 }
 .left-btn:hover, .right-btn:hover {
+    cursor: pointer;
     background-color: #FDDCC4;
     transition: 0.5s;
     border: 2px solid #FDDCC4;
@@ -401,7 +402,8 @@ body {
     /* or 150% */
     color: #B2B2B2;
 }
-.card-number-p {
+.card-link {
+    text-decoration: none;
     margin-top: 2px;
     width: 349px;
     height: 43px;
@@ -413,11 +415,11 @@ body {
     justify-content: center;
     transition: 0.5s;
 }
-.card-number-p:hover {
+.card-link:hover {
     background: #FDDCC4;
 }
 
-.card-link {
+.card-link-span {
     font-family: 'Georgia';
     font-style: normal;
     font-weight: 400;
@@ -426,7 +428,6 @@ body {
     /* identical to box height, or 23px */
     letter-spacing: 0.06em;
     color: #545454;
-    text-decoration: none;
     margin-top: 10px;
 }
 /*footer*/
