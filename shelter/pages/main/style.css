@@ -496,3 +496,56 @@ body {
 .london-p {
     margin-top: 31px;
 }
+
+
+/*adaprive 768 <= width <1280*/
+@media (max-width: 1279px) {
+    .container {
+        width: calc(100%-30px);
+        height: 110px;
+        padding: 0 30px;
+    }
+    .about-container, .pets-container, .help-container, .donation-container, .footer-container {
+        width: 100%;
+    }
+
+    /*Header*/
+    .header-container {
+        width: 100%;
+        padding: 30px;
+        background: url(../../assets/images/start-screen-gradient-background768.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+   }
+
+        /* start screen*/
+    .start-screen-container {
+        padding-top: 41px;
+        width: 100%;
+        height: 1055px;
+        background: url(../../assets/images/start-screen-gradient-background768.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        flex-direction: column;
+        row-gap: 100px;         
+    }
+    .start-screen-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0;
+        margin-right: 1px;
+    }
+    .start-screen-heading {
+        margin: 0;
+        margin-right: 150px;
+    }
+    .start-screen-img {
+        background-image: url(../../assets/images/start-screen-puppy.png);
+        background-size: 569px 593px;
+        background-repeat: no-repeat;
+        align-self: flex-end;
+        background-position: right 0px;              
+    }
+    
+}
