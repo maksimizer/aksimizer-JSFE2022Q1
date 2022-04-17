@@ -584,4 +584,30 @@ body {
     height: 100%;
     column-gap: 40px;
 }
+
+        /* HELP */
+
+.help-container {
+    padding-top: 80px;
+    padding-bottom: 95px;
+    height: auto;
+    
+}
+.help-list-container {
+    display: flex;
+    align-items: baseline ;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: auto;
+    gap: 55px 60px;
+}
+.help-item {
+ width: 170px;
+ height: 111px;
+}
+.help-item p {
+    margin-top: 25px;
+    text-align: center;
+}
+
 }
