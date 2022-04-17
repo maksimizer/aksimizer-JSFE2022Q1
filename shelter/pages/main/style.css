@@ -472,7 +472,7 @@ body {
     background-image: url(../../assets/images/footer-puppy.png);
     width: 300px;
     height: 310px;
-    margin-left: 4px;
+    margin-left: 2px;
 }
 .footer-p {
     display: flex;
@@ -602,8 +602,8 @@ body {
     gap: 55px 60px;
 }
 .help-item {
- width: 170px;
- height: 111px;
+    width: 170px;
+    height: 111px;
 }
 .help-item p {
     margin-top: 25px;
@@ -620,11 +620,30 @@ body {
     row-gap: 59px;
 }
 .donation-image {
-    width: 505px;
-    height: 261px;
-    background-image: url(../../assets/images/donation-dog.png);
     margin-left: 0;
     margin-right: 1px;
+}
+
+
+        /*footer*/
+
+.footer-container {
+    background: url(../../assets/images/footer-gradient-background768.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 30px;
+    column-gap: 60px;
+    row-gap: 61px;
+}
+.contacts-heading {
+    padding-top: 0px;
+}
+.footer-img {
+    margin-left: 0px;
 }
 
 }
