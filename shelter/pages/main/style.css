@@ -635,6 +635,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     padding-top: 30px;
     column-gap: 60px;
     row-gap: 61px;
@@ -645,5 +646,11 @@ body {
 .footer-img {
     margin-left: 0px;
 }
+.footer-img {
+    background-image: url(../../assets/images/footer-puppy.png);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 
+}
 }
