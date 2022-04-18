@@ -288,3 +288,77 @@ header {
 .london-p {
     margin-top: 31px;
 }
+
+/*786 <= width < 1280*/
+
+@media (max-width: 1279px) {
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 30px;
+    overflow-x: hidden;
+    height: auto;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    background: #FFFFFF;
+    padding-top: 30px;
+    height: 120px;
+}
+
+            /*pets*/
+
+.pets-container {
+    row-gap: 29px;
+    padding-top: 80px;
+    padding-bottom: 76px;
+}
+.navigation-container {
+    margin-top: 11px;
+}
+.pet-cards-container {
+    justify-content: center;
+    row-gap: 30px;
+    column-gap: 40px;
+    width: 708px;
+}
+.card-7, .card-8 {
+    display: none;
+}
+
+/*footer*/
+
+.footer-container {
+    background: url(../../assets/images/footer-gradient-background.jpg);
+    height: auto;
+    background-repeat: no-repeat;
+    background-size: 100% 639px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 30px;
+    padding-left: 64px;
+    padding-right: 64px;
+    column-gap: 58px;
+    row-gap: 61px;
+    width: 768px;
+}
+.contacts-heading {
+    padding-top: 0px;
+}
+.contacts-tel {
+    width: 280px;
+}
+.contacts-geo {
+    width: 302px;
+}
+.footer-img {
+    background-image: url(../../assets/images/footer-puppy.png);
+    width: 300px;
+    height: 310px;
+    margin-left: 0px;
+}
+
+}
