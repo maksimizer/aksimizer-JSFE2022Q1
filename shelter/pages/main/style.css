@@ -846,11 +846,52 @@ body {
     order: 2;   
 }
 .right-btn {
-order: 3;
+    order: 3;
 }
 .cards-container {
     display: flex;
     height: 435px;
 }
 
+     /*help*/
+#help {
+    width: 300px;
+    height: 64px;
+    font-size: 25px;
+    margin: 0 auto;
+    text-align: center;
+    color: #545454;
+}
+.help-container {
+    padding-top: 42px;
+    padding-bottom: 42px;
+    height: auto; 
+}
+.help-list-container {
+    display: flex;
+    margin-top: 42px;
+    justify-content: stretch;
+    align-content: stretch;
+    align-items: stretch;
+    flex-wrap: wrap;
+    height: auto;
+    gap: 30px;
+    padding: 0;
+}
+.help-item {
+    width: 45%;
+    height: 87px;
+}
+.help-item p {
+    margin: 0;
+    margin-top: 15px;
+    text-align: center;
+    font-family: 'Georgia';
+    font-size: 15px;
+    line-height: 110%;
+    color: #545454;
+}
+.help-item img {
+    height: 50px;
+}
 }
