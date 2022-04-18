@@ -807,6 +807,50 @@ body {
     height: 353.6px;
     margin-top: 16px;
 }
+      
 
+        /* pets */
+
+.pets-container {
+    height: auto;
+    padding-top: 42px;
+    padding-bottom: 42px;
+}
+.card-2 {
+    display: none;
+}
+.card-3 {
+    display: none;
+}
+#pets {
+    width: 300px;
+    height: 64px;
+    font-size: 25px;
+    margin: 0 auto;
+    text-align: center;
+    color: #545454;
+}
+.slider-container {
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 270px;
+    height: 507px;
+    margin-top: 42px;
+    margin-bottom: 42px;
+    column-gap: 80px;
+    row-gap: 20px;
+}
+.left-btn {
+    order: 2;   
+}
+.right-btn {
+order: 3;
+}
+.cards-container {
+    display: flex;
+    height: 435px;
+}
 
 }
