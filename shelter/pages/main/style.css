@@ -742,9 +742,10 @@ body {
     /* or 32px */
     color: #FFFFFF;
     margin: 0;
-    width: 300px;
+    width: 260px;
     height: 64px;
     text-align: center;
+    letter-spacing: 0.06em;
 }
 .start-screen-subheading{
     margin: 0;
