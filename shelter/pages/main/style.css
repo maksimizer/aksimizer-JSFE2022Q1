@@ -894,4 +894,70 @@ body {
 .help-item img {
     height: 50px;
 }
+ 
+
+        /*donation*/
+
+.donation-title {
+    width: 220px;
+    height: 64px;
+    font-size: 25px;
+    line-height: 130%;
+    /* or 45px */
+    color: #545454;
+    margin: 0 auto;
+    text-align: center;
+}
+.donation-container {
+    padding-top: 42px;
+    padding-bottom: 42px;
+    width: 100%;
+    height: auto;
+    flex-direction: column-reverse;
+    row-gap: 20px;
+}
+.donation-image {
+    width: 260px;
+    height: 135px;
+    background-image: url(../../assets/images/donation-dog.png);
+    background-size: 260px 135px;
+    margin-top: 22px;
+    margin-left: 0;
+    margin-right: 1px;
+}
+.donation-content {
+    width: 280px;
+    height: 281px;
+}
+.bank-name {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 160%;
+    /* identical to box height, or 24px */
+    letter-spacing: 0;
+    color: #545454;
+    margin: 0;  
+    text-align: center;
+}
+.legal-information {
+    margin: 0;
+    text-align: justify;
+}
+.card-link {
+    width: 100%; 
+}
+.card-link-span {
+    font-size: 15px;
+    line-height: 110%;
+    /* identical to box height, or 17px */
+    letter-spacing: 0.06em;
+    color: #545454;
+    margin-top: 10px;
+}
+.card-number {
+    margin-top: 14px;
+}
+
 }
