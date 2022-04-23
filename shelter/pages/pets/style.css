@@ -349,7 +349,6 @@ header {
     padding-right: 64px;
     column-gap: 58px;
     row-gap: 61px;
-    width: 768px;
 }
 .contacts-heading {
     padding-top: 0px;
@@ -357,6 +356,9 @@ header {
 
 .footer-img {
     margin-left: 0px;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 }
 
