@@ -22,7 +22,7 @@ body {
     padding: 60px 40px;
     display: flex;
     justify-content: space-between;
-    background: url(../../assets/images/start-screen-gradient-background.jpg);
+    background: url(../../assets/images/start-screen-gradient-background.jpg);    
 }
 .logo {
     display: flex;
@@ -1011,6 +1011,7 @@ body {
     display: flex;
     margin-top: 30px;
     margin-left: 10px;
+    margin-bottom: 20px;
     align-self: flex-start;
 
 }
@@ -1037,10 +1038,9 @@ body {
 }
 .nav-menu{
     flex-direction: column;
-    padding-top: 158px;
     row-gap: 40px;
     padding: 0;
-    padding-top: 158px;
+    padding-top: 140px;
     overflow: scroll;
     height: auto;
 }
@@ -1056,6 +1056,7 @@ body {
 }
 .nav-link-active {
     color: #FAFAFA;
+    padding-bottom: 6px;
 }
 .burger {
     display: flex;
