@@ -19,7 +19,6 @@ body {
 /*Header*/
 header {
     position: sticky;
-    z-index: 2;
     top: 0;
 }
 .header-container {
@@ -297,7 +296,9 @@ header {
 .logo-burger {
     display: none;
 }
-
+.darkener {
+    position: absolute;
+}
 
 /*786 <= width < 1280*/
 
@@ -472,6 +473,7 @@ header {
     display: block;
     margin-top: 30px;
     margin-left: 10px;
+    width: 186px;
 }
 
 .nav {
@@ -502,7 +504,7 @@ header {
     row-gap: 40px;
     overflow: scroll;
     height: auto;
-    margin: 0 auto;
+    width: 100%;
 }
 .nav-link {
     font-family: 'Arial';
