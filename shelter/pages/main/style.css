@@ -205,6 +205,7 @@ body {
     padding-top: 80px;
     padding-bottom: 100px;
     background: #F6F6F6;
+    row-gap: 60px;
 }
 #pets, #help, .donation-title {
     width: 400px;
@@ -229,17 +230,53 @@ body {
     align-items: center;
     width: 100%;
     height: 435px;
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin:0;
     column-gap: 53px;
 }
-.cards-container {
-    display: flex;
+.carousel-wrapper {
+    width: 990px;
+    overflow: hidden;
     height: 100%;
 }
-.card-2 {
-    margin-left: 90px;
-    margin-right: 90px;
+.carousel {
+    position: relative;
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 990px;
+    left: -990px;
+}
+.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 90px;
+}
+
+@keyframes move-right {
+    from {
+        left: -990px;
+    }
+    to {
+        left: -1980px;
+    }
+}
+.transition-right {
+    animation-name: move-right;
+    animation-duration: 0.5s;
+}
+@keyframes move-left {
+    from {
+        left: -990px;
+    }
+    to {
+        left: 0px;
+    }
+}
+.transition-left {
+    animation-name: move-left;
+    animation-duration: 0.5s;
 }
 .card {
     display: flex;
@@ -588,7 +625,7 @@ body {
 .slider-container {
     column-gap: 12px;
 }
-.cards-container {
+.carousel-wrapper {
     display: flex;
     height: 100%;
     column-gap: 40px;
@@ -815,7 +852,7 @@ body {
 .right-btn {
     order: 3;
 }
-.cards-container {
+.carousel-wrapper {
     display: flex;
     height: 435px;
 }
