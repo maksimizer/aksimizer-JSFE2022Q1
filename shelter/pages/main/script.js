@@ -85,4 +85,4 @@ function getRandomArr() {
 };
   
 let randomArr = getRandomArr();
-console.log(randomArr);
+
