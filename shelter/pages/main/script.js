@@ -40,7 +40,7 @@ window.addEventListener('resize', function() {
 })
 
 
-// ================BURGER======================================
+// ================CAROUSEL======================================
 
 const btnRight = document.querySelector('.right-btn');
 const btnLeft = document.querySelector('.left-btn');
@@ -59,9 +59,6 @@ const moveRight = () => {
     btnRight.removeEventListener('click', moveRight);
 };
 
-btnLeft.addEventListener('click', moveLeft);
-btnRight.addEventListener('click', moveRight);
-
 carousel.addEventListener('animationend', () => {
     carousel.classList.remove('transition-left');
     carousel.classList.remove('transition-right');
@@ -69,3 +66,23 @@ carousel.addEventListener('animationend', () => {
     btnRight.addEventListener('click', moveRight);
 });
 
+btnLeft.addEventListener('click', moveLeft);
+btnRight.addEventListener('click', moveRight);
+
+
+//======================RANDOMIZER+++++++++++++++++++++++++++++++++++++++
+let allPets = ['Katrine', 'Jennifer', 'Woody', 'Sophia', 'Timmy', 'Charly', 'Scarlett', 'Freddie'];
+
+function getRandomArr() {
+    let arr = []; 
+    while(arr.length < allPets.length){
+        let randomInt = Math.floor(Math.random() * (allPets.length));
+        if((arr.indexOf(randomInt) === -1) && (randomInt !== 8)) {
+            arr.push(randomInt);
+        };
+    };
+    return arr;
+};
+  
+let randomArr = getRandomArr();
+console.log(randomArr);
