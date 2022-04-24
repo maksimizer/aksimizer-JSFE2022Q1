@@ -1,3 +1,6 @@
+
+
+// ================BURGER======================================
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav');
 const darkener = document.querySelector('.darkener');
@@ -35,3 +38,34 @@ window.addEventListener('resize', function() {
         document.documentElement.classList.remove('disabled');
     }
 })
+
+
+// ================BURGER======================================
+
+const btnRight = document.querySelector('.right-btn');
+const btnLeft = document.querySelector('.left-btn');
+const carousel = document.querySelector('.carousel');
+const itemLeft = document.querySelector('.item-left');
+const itemRight = document.querySelector('.item-right');
+
+const moveLeft = () => {
+    carousel.classList.add('transition-left');
+    btnLeft.removeEventListener('click', moveLeft);
+    btnRight.removeEventListener('click', moveRight);
+};
+const moveRight = () => {
+    carousel.classList.add('transition-right');
+    btnLeft.removeEventListener('click', moveLeft);
+    btnRight.removeEventListener('click', moveRight);
+};
+
+btnLeft.addEventListener('click', moveLeft);
+btnRight.addEventListener('click', moveRight);
+
+carousel.addEventListener('animationend', () => {
+    carousel.classList.remove('transition-left');
+    carousel.classList.remove('transition-right');
+    btnLeft.addEventListener('click', moveLeft);
+    btnRight.addEventListener('click', moveRight);
+});
+
