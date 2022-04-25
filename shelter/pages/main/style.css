@@ -616,15 +616,7 @@ body {
     padding-top: 80px;
     padding-bottom: 100px;
 }
-.card-2 {
-    margin: 0;
-}
-.card-3 {
-    display: none;
-}
 .carousel-wrapper {
-    display: flex;
-    height: 100%;
     column-gap: 40px;
     width: 580px;
 }
@@ -843,12 +835,7 @@ body {
     height: auto;
     padding-top: 42px;
     padding-bottom: 42px;
-}
-.card-2 {
-    display: none;
-}
-.card-3 {
-    display: none;
+    row-gap: 0;
 }
 #pets {
     width: 300px;
@@ -870,6 +857,35 @@ body {
     column-gap: 80px;
     row-gap: 20px;
 }
+.carousel-wrapper {
+    column-gap: 0px;
+    width: 270px;
+    height: 435px;
+}
+.carousel {
+    max-width: 270px;
+    left: -270px;
+}
+.item {
+    gap: 0px;
+}
+@keyframes move-right {
+    from {
+        left: -270px;
+    }
+    to {
+        left: -540px;
+    }
+}
+@keyframes move-left {
+    from {
+        left: -270px;
+    }
+    to {
+        left: 0px;
+    }
+}
+
 .left-btn {
     order: 2;   
 }
@@ -878,7 +894,7 @@ body {
 }
 .carousel-wrapper {
     display: flex;
-    height: 435px;
+    
 }
 
      /*help*/

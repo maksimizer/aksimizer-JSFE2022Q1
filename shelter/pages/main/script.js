@@ -154,7 +154,7 @@ if (document.documentElement.clientWidth > 1279) {
 
 //====== 768px - 1279px 
 
-if (document.documentElement.clientWidth <= 1279) {
+if ((document.documentElement.clientWidth > 767) && (document.documentElement.clientWidth <= 1279)) {
     let itemToChange = itemActive;
     function randomiseCards() {
         itemToChange.innerHTML = '';
@@ -178,6 +178,51 @@ if (document.documentElement.clientWidth <= 1279) {
         };
         itemRight.innerHTML = '';
         for (let i = 0; i < 2; i++) {
+        let randomCard = createRandomCard(randomArr[i]);
+        itemRight.appendChild(randomCard);
+        };
+    };
+    window.onload = randomiseCards(); 
+    
+    carousel.addEventListener('animationend', () => {
+        if (carousel.classList.contains('transition-left')) {
+            itemToChange = itemLeft;
+            itemActive.innerHTML = itemLeft.innerHTML;
+            carousel.classList.remove('transition-left');
+        } else if (carousel.classList.contains('transition-right')) {
+            itemToChange = itemRight;
+            itemActive.innerHTML = itemRight.innerHTML;
+            carousel.classList.remove('transition-right');
+        };
+        randomiseCards();
+        btnLeft.addEventListener('click', moveLeft);
+        btnRight.addEventListener('click', moveRight);
+    });
+};
+
+//====== <=767px 
+if (document.documentElement.clientWidth <= 767) {
+    let itemToChange = itemActive;
+    function randomiseCards() {
+        itemToChange.innerHTML = '';
+        for (let i = 0; i < 1; i++) {
+        let randomCard = createRandomCard(randomArr[i]);
+        itemToChange.appendChild(randomCard);
+        };
+        let usedIndex0 = randomArr[0];
+        if (randomArr.length <= 2) {
+            randomArr = getRandomArr();
+            if (randomArr.includes(usedIndex0)) {randomArr.splice(randomArr.indexOf(usedIndex0), 1)};  
+            } else {
+            randomArr = randomArr.slice(1)
+        };
+        itemLeft.innerHTML = '';
+        for (let i = 0; i < 1; i++) {
+        let randomCard = createRandomCard(randomArr[i]);
+        itemLeft.appendChild(randomCard);
+        };
+        itemRight.innerHTML = '';
+        for (let i = 0; i < 1; i++) {
         let randomCard = createRandomCard(randomArr[i]);
         itemRight.appendChild(randomCard);
         };
