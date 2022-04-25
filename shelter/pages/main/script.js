@@ -41,13 +41,15 @@ window.addEventListener('resize', function() {
 
 
 // ================CAROUSEL======================================
-
 const btnRight = document.querySelector('.right-btn');
 const btnLeft = document.querySelector('.left-btn');
 const carousel = document.querySelector('.carousel');
 const itemLeft = document.querySelector('.item-left');
 const itemRight = document.querySelector('.item-right');
+const itemActive = document.querySelector('.item-active');
 
+
+//================animation
 const moveLeft = () => {
     carousel.classList.add('transition-left');
     btnLeft.removeEventListener('click', moveLeft);
@@ -59,18 +61,11 @@ const moveRight = () => {
     btnRight.removeEventListener('click', moveRight);
 };
 
-carousel.addEventListener('animationend', () => {
-    carousel.classList.remove('transition-left');
-    carousel.classList.remove('transition-right');
-    btnLeft.addEventListener('click', moveLeft);
-    btnRight.addEventListener('click', moveRight);
-});
-
 btnLeft.addEventListener('click', moveLeft);
 btnRight.addEventListener('click', moveRight);
 
 
-//======================RANDOMIZER+++++++++++++++++++++++++++++++++++++++
+//================RANDOMIZER
 let allPets = ['Katrine', 'Jennifer', 'Woody', 'Sophia', 'Timmy', 'Charly', 'Scarlett', 'Freddie'];
 
 function getRandomArr() {
@@ -82,7 +77,79 @@ function getRandomArr() {
         };
     };
     return arr;
-};
-  
+}; 
+
 let randomArr = getRandomArr();
 
+//============CREATE NEW RANDOM CARD
+function createRandomCard(i) {  
+    let pet = allPets[i];
+    let randomCard = document.createElement('div');
+    randomCard.classList.add('card', `card-${pet}`);
+    let img = document.createElement('img');
+    img.src = `../../assets/images/pets-${pet}.png`;
+    img.alt = 'pet';
+    let petName = document.createElement('p');
+    petName.classList.add('pet-name');
+    petName.innerHTML = `${pet}`;
+    let petBtn = document.createElement('button');
+    petBtn.classList.add('button-secondary', 'learn-more-button', `${pet}`);
+    petBtn.innerHTML = 'Learn more';
+    randomCard.append(img);
+    randomCard.append(petName);    
+    randomCard.append(petBtn);
+    return randomCard;
+};
+
+//====== >=1280px 
+if (document.documentElement.clientWidth > 1279) {
+    let itemToChange = itemActive;
+    function randomiseCards() {
+        itemToChange.innerHTML = '';
+        for (let i = 0; i < 3; i++) {
+        let randomCard = createRandomCard(randomArr[i]);
+        itemToChange.appendChild(randomCard);
+        };
+        let usedIndex0 = randomArr[0];
+        let usedIndex1 = randomArr[1];
+        let usedIndex2 = randomArr[2];
+        if (randomArr.length <= 5) {
+            randomArr = getRandomArr();
+            if (randomArr.includes(usedIndex0)) {randomArr.splice(randomArr.indexOf(usedIndex0), 1)};
+            if (randomArr.includes(usedIndex1)) {randomArr.splice(randomArr.indexOf(usedIndex1), 1)};
+            if (randomArr.includes(usedIndex2)) {randomArr.splice(randomArr.indexOf(usedIndex2), 1)};
+            } else {
+            randomArr = randomArr.slice(3)
+        };
+        itemLeft.innerHTML = '';
+        for (let i = 0; i < 3; i++) {
+        let randomCard = createRandomCard(randomArr[i]);
+        itemLeft.appendChild(randomCard);
+        };
+        itemRight.innerHTML = '';
+        for (let i = 0; i < 3; i++) {
+        let randomCard = createRandomCard(randomArr[i]);
+        itemRight.appendChild(randomCard);
+        };
+    };
+    window.onload = randomiseCards(); 
+    
+    carousel.addEventListener('animationend', () => {
+        if (carousel.classList.contains('transition-left')) {
+            itemToChange = itemLeft;
+            itemActive.innerHTML = itemLeft.innerHTML;
+            carousel.classList.remove('transition-left');
+        } else if (carousel.classList.contains('transition-right')) {
+            itemToChange = itemRight;
+            itemActive.innerHTML = itemRight.innerHTML;
+            carousel.classList.remove('transition-right');
+        };
+        randomiseCards();
+        btnLeft.addEventListener('click', moveLeft);
+        btnRight.addEventListener('click', moveRight);
+    });
+};
+  
+    
+        
+    
