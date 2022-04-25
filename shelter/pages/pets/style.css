@@ -134,6 +134,30 @@ header {
     max-width: 1200px;
     max-height: 900px;
 }
+@keyframes move-right {
+    from {
+        left: -1200px;
+    }
+    to {
+        left: -2400px;
+    }
+}
+.transition-right {
+    animation-name: move-right;
+    animation-duration: 0.5s;
+}
+@keyframes move-left {
+    from {
+        left: -1200px;
+    }
+    to {
+        left: 0px;
+    }
+}
+.transition-left {
+    animation-name: move-left;
+    animation-duration: 0.5s;
+}
 .pets-title {
     font-family: 'Georgia';
     font-style: normal;
@@ -147,6 +171,7 @@ header {
     margin: 0;
     padding-left: 3px;
 }
+
 .navigation-container {
     display: flex;
     flex-direction: row;
@@ -169,21 +194,31 @@ header {
     border: 2px solid #F1CDB3;
     border-radius: 100px;
     text-align: center;
-}
-.enabled {
     cursor: pointer;
     transition: 0.5s;
 }
-.enabled:hover {
+
+.navigation-button:hover {
     background-color: #FDDCC4;
     border-color: #FDDCC4;
 }
-.navigation-button-current {
+.page-counter {
     background-color: #F1CDB3;
+    cursor: auto;
+}
+.page-counter:hover {
+    border-color: #F1CDB3;
+    background-color: #F1CDB3 ;
 }
 .disabled {
     color: #CDCDCD;
     border-color: #CDCDCD;
+    cursor: auto;
+}
+.disabled:hover{
+    color: #CDCDCD;
+    border-color: #CDCDCD;
+    background-color: transparent;
 }
 
 .card {
