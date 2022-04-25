@@ -278,6 +278,7 @@ if (document.documentElement.clientWidth > 1279) {
 };
 
 
-  
+//==========768px
+
 
 
