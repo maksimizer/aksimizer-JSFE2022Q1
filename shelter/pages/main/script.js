@@ -151,5 +151,51 @@ if (document.documentElement.clientWidth > 1279) {
 };
   
     
-        
+
+//====== 768px - 1279px 
+
+if (document.documentElement.clientWidth <= 1279) {
+    let itemToChange = itemActive;
+    function randomiseCards() {
+        itemToChange.innerHTML = '';
+        for (let i = 0; i < 2; i++) {
+        let randomCard = createRandomCard(randomArr[i]);
+        itemToChange.appendChild(randomCard);
+        };
+        let usedIndex0 = randomArr[0];
+        let usedIndex1 = randomArr[1];
+        if (randomArr.length <= 3) {
+            randomArr = getRandomArr();
+            if (randomArr.includes(usedIndex0)) {randomArr.splice(randomArr.indexOf(usedIndex0), 1)};
+            if (randomArr.includes(usedIndex1)) {randomArr.splice(randomArr.indexOf(usedIndex1), 1)};            
+            } else {
+            randomArr = randomArr.slice(2)
+        };
+        itemLeft.innerHTML = '';
+        for (let i = 0; i < 2; i++) {
+        let randomCard = createRandomCard(randomArr[i]);
+        itemLeft.appendChild(randomCard);
+        };
+        itemRight.innerHTML = '';
+        for (let i = 0; i < 2; i++) {
+        let randomCard = createRandomCard(randomArr[i]);
+        itemRight.appendChild(randomCard);
+        };
+    };
+    window.onload = randomiseCards(); 
     
+    carousel.addEventListener('animationend', () => {
+        if (carousel.classList.contains('transition-left')) {
+            itemToChange = itemLeft;
+            itemActive.innerHTML = itemLeft.innerHTML;
+            carousel.classList.remove('transition-left');
+        } else if (carousel.classList.contains('transition-right')) {
+            itemToChange = itemRight;
+            itemActive.innerHTML = itemRight.innerHTML;
+            carousel.classList.remove('transition-right');
+        };
+        randomiseCards();
+        btnLeft.addEventListener('click', moveLeft);
+        btnRight.addEventListener('click', moveRight);
+    });
+};
