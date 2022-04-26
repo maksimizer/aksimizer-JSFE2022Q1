@@ -384,18 +384,60 @@ header {
     padding-top: 80px;
     padding-bottom: 76px;
 }
+.carousel-wrapper {
+    width: 580px;    
+    height: 1365px;
+    overflow: hidden;
+}
+.carousel {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 1740px;
+    max-height: 100%;
+    left: -580px;
+}
+
+.item {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    row-gap: 30px;
+    column-gap: 40px;
+    max-width: 580px;
+    max-height: 1365px;
+}
+@keyframes move-right {
+    from {
+        left: -580px;
+    }
+    to {
+        left: -1160px;
+    }
+}
+.transition-right {
+    animation-name: move-right;
+    animation-duration: 0.5s;
+}
+@keyframes move-left {
+    from {
+        left: -580px;
+    }
+    to {
+        left: 0px;
+    }
+}
+.transition-left {
+    animation-name: move-left;
+    animation-duration: 0.5s;
+}
+
 .navigation-container {
     margin-top: 11px;
 }
-.pet-cards-container {
-    justify-content: center;
-    row-gap: 30px;
-    column-gap: 40px;
-    width: 708px;
-}
-.card-7, .card-8 {
-    display: none;
-}
+
+
 
 /*footer*/
 
@@ -448,9 +490,9 @@ header {
 
         /*pets*/
 .pets-container {
-    row-gap: 30px;
+    row-gap: 42px;
     padding-top: 42px;
-    padding-bottom: 42px;
+    padding-bottom: 41px;
 }
 .pets-title {
     font-size: 25px;
@@ -459,21 +501,63 @@ header {
     margin: 0;
     padding-left: 0px;
 }
-.pet-cards-container {
+
+.carousel-wrapper {
+    width: 270px;    
+    height: 1365px;
+    overflow: hidden;
+}
+.carousel {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 810px;
+    max-height: 100%;
+    left: -270px;
+}
+
+.item {
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
-    align-items: center;
-    padding-top: 11px;
-    width: 100%;
+    justify-content: space-between;
+    row-gap: 30px;
+    column-gap: 0px;
+    max-width: 270px;
+    max-height: 1365px;
+}
+@keyframes move-right {
+    from {
+        left: -270px;
+    }
+    to {
+        left: -540px;
+    }
+}
+.transition-right {
+    animation-name: move-right;
+    animation-duration: 0.5s;
+}
+@keyframes move-left {
+    from {
+        left: -270px;
+    }
+    to {
+        left: 0px;
+    }
+}
+.transition-left {
+    animation-name: move-left;
+    animation-duration: 0.5s;
 }
 .navigation-container {
     display: flex;
     flex-direction: row;
     column-gap: 10px;
-    margin-top: 12px;
+    margin: 0;
+    padding: 0;
 }
-.card-4, .card-5, .card-6, .card-7, .card-8 {
-    display: none;
-}
+
 
         /*footer*/
 .footer-container {
