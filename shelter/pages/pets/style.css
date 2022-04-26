@@ -384,18 +384,60 @@ header {
     padding-top: 80px;
     padding-bottom: 76px;
 }
+.carousel-wrapper {
+    width: 580px;    
+    height: 1365px;
+    overflow: hidden;
+}
+.carousel {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 1740px;
+    max-height: 100%;
+    left: -580px;
+}
+
+.item {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    row-gap: 30px;
+    column-gap: 40px;
+    max-width: 580px;
+    max-height: 1365px;
+}
+@keyframes move-right {
+    from {
+        left: -580px;
+    }
+    to {
+        left: -1160px;
+    }
+}
+.transition-right {
+    animation-name: move-right;
+    animation-duration: 0.5s;
+}
+@keyframes move-left {
+    from {
+        left: -580px;
+    }
+    to {
+        left: 0px;
+    }
+}
+.transition-left {
+    animation-name: move-left;
+    animation-duration: 0.5s;
+}
+
 .navigation-container {
     margin-top: 11px;
 }
-.pet-cards-container {
-    justify-content: center;
-    row-gap: 30px;
-    column-gap: 40px;
-    width: 708px;
-}
-.card-7, .card-8 {
-    display: none;
-}
+
+
 
 /*footer*/
 

@@ -1,4 +1,3 @@
-alert('ДОРОГОЙ ДРУГ! ПОЖАЛУЙСТА, ПРОВЕРЬ МЕНЯ 27 ЧИСЛА! Мне нужен один день.  К сожалению, я не успел закончить задание, у меня было очень мало времени, в связи с обстоятельствами, но я уже доделываю. Спасибо за понимание!');
 /*=====================BURGER================*/
 
 const burger = document.querySelector('.burger');
@@ -154,6 +153,7 @@ if (document.documentElement.clientWidth > 1279) {
         pageCounter.innerHTML = 1;
         pageCount = 0;
         btnRight.addEventListener('click', moveRight);
+        btnLeft.removeEventListener('click', moveLeft);
         btnRight.classList.remove('disabled');
         btnEnd.classList.remove('disabled');
         btnLeft.classList.add('disabled');
@@ -193,6 +193,7 @@ if (document.documentElement.clientWidth > 1279) {
         pageCounter.innerHTML = 6;
         pageCount = 5;
         btnLeft.addEventListener('click', moveLeft);
+        btnRight.removeEventListener('click', moveRight);
         btnLeft.classList.remove('disabled');
         btnStart.classList.remove('disabled');
         btnRight.classList.add('disabled');
@@ -280,5 +281,205 @@ if (document.documentElement.clientWidth > 1279) {
 
 //==========768px
 
+if ((document.documentElement.clientWidth > 767) && (document.documentElement.clientWidth < 1280)) { 
+//==================INITIAL RANDOMISE   
+
+    function randomisePages() {
+        for (let i = 0; i < 6; i++) {
+            randomArr = getRandomArr();
+            randomArrArr.push(randomArr);
+        }; 
+        let allCardsArr = randomArrArr.flat();
+         randomArrArr = [[], [], [], [], [], [], [], []];
+        while (allCardsArr.length > 0) {
+            let cardNum = allCardsArr.pop();
+            let i = 0;
+            while (true) {
+                if (!randomArrArr[i].includes(cardNum) && randomArrArr[i].length < 6) {
+                    randomArrArr[i].push(cardNum);
+                    break;
+                } else {
+                    i++;
+                };  
+            };
+        };
+        itemLeft.innerHTML = '';
+        for (let i = 0; i < 6; i++) {
+            let randomCard = createRandomCard(randomArrArr[pageCount][i]);
+            itemLeft.appendChild(randomCard);
+        };
+        itemActive.innerHTML = '';
+        for (let i = 0; i < 6; i++) {
+            let randomCard = createRandomCard(randomArrArr[pageCount + 1][i]);
+            itemActive.appendChild(randomCard);   
+        };
+        itemRight.innerHTML = '';
+        for (let i = 0; i < 6; i++) {
+            let randomCard = createRandomCard(randomArrArr[pageCount + 1][i]);
+            itemRight.appendChild(randomCard);
+        };
+        
+    };
+    window.onload = randomisePages();
 
 
+//===============animation
+       const moveLeft = () => {
+        carousel.classList.add('transition-left');
+        btnLeft.removeEventListener('click', moveLeft);
+        btnRight.removeEventListener('click', moveRight);
+        if (pageCount === 7) {
+            btnEnd.classList.remove('disabled');
+            btnRight.classList.remove('disabled');
+        };
+        pageCounter.innerHTML = pageCount;
+        pageCount = pageCount - 1;
+        if (pageCount === 0) {
+            btnStart.classList.add('disabled');
+            btnLeft.classList.add('disabled');
+        };
+    };
+    const moveStart = () => {
+        itemActive.innerHTML = '';
+        for (let i = 0; i < 6; i++) {
+            let card = createRandomCard(randomArrArr[0][i]);
+            itemActive.appendChild(card);
+        };
+        itemLeft.innerHTML = '';
+        for (let i = 0; i < 6; i++) {
+            let card = createRandomCard(randomArrArr[1][i]);
+            itemLeft.appendChild(card);
+        };
+        itemRight.innerHTML = '';
+        for (let i = 0; i < 6; i++) {
+            let card = createRandomCard(randomArrArr[1][i]);
+            itemRight.appendChild(card);
+        };
+        pageCounter.innerHTML = 1;
+        pageCount = 0;
+        btnRight.addEventListener('click', moveRight);
+        btnLeft.removeEventListener('click', moveLeft);
+        btnRight.classList.remove('disabled');
+        btnEnd.classList.remove('disabled');
+        btnLeft.classList.add('disabled');
+        btnStart.classList.add('disabled'); 
+    };
+    const moveRight = () => {
+        carousel.classList.add('transition-right');
+        btnLeft.removeEventListener('click', moveLeft);
+        btnRight.removeEventListener('click', moveRight);
+        if (pageCount === 0) {
+            btnLeft.classList.remove('disabled');
+            btnStart.classList.remove('disabled');
+        };
+        pageCounter.innerHTML = pageCount + 2;
+        pageCount = pageCount + 1;
+        if (pageCount === 7) {
+            btnRight.classList.add('disabled');
+            btnEnd.classList.add('disabled');
+        };
+    };
+    const moveEnd = () => {
+        itemActive.innerHTML = '';
+        for (let i = 0; i < 6; i++) {
+            let card = createRandomCard(randomArrArr[5][i]);
+            itemActive.appendChild(card);
+        };
+        itemLeft.innerHTML = '';
+        for (let i = 0; i < 6; i++) {
+            let card = createRandomCard(randomArrArr[4][i]);
+            itemLeft.appendChild(card);
+        };
+        itemRight.innerHTML = '';
+        for (let i = 0; i < 6; i++) {
+            let card = createRandomCard(randomArrArr[4][i]);
+            itemRight.appendChild(card);
+        };
+        pageCounter.innerHTML = 8;
+        pageCount = 7;
+        btnLeft.addEventListener('click', moveLeft);
+        btnRight.removeEventListener('click', moveRight);
+        btnLeft.classList.remove('disabled');
+        btnStart.classList.remove('disabled');
+        btnRight.classList.add('disabled');
+        btnEnd.classList.add('disabled'); 
+    };
+
+    btnLeft.addEventListener('click', moveLeft);
+    btnRight.addEventListener('click', moveRight);
+    btnStart.addEventListener('click', moveStart);
+    btnEnd.addEventListener('click', moveEnd);
+
+    carousel.addEventListener('animationend', () => {
+        let itemToChange;
+        if (carousel.classList.contains('transition-left')) {
+            itemToChange = itemLeft;
+            itemActive.innerHTML = itemLeft.innerHTML;
+            carousel.classList.remove('transition-left');
+        } else if (carousel.classList.contains('transition-right')) {
+            itemToChange = itemRight;
+            itemActive.innerHTML = itemRight.innerHTML;
+            carousel.classList.remove('transition-right');
+        };
+    
+        if (pageCount !== 0 && pageCount !== 7) {
+            itemToChange.innerHTML = "";
+            for (let i = 0; i < 6; i++) {
+                const card = createRandomCard(randomArrArr[pageCount][i]);
+                itemToChange.appendChild(card);
+            };
+    
+        itemLeft.innerHTML = '';
+        for (let i = 0; i < 6; i++) {
+            const card = createRandomCard(randomArrArr[pageCount - 1][i]);
+            itemLeft.appendChild(card);
+        };
+        itemRight.innerHTML = '';
+        for (let i = 0; i < 6; i++) {
+            const card = createRandomCard(randomArrArr[pageCount + 1][i]);
+            itemRight.appendChild(card);
+        };
+        btnLeft.addEventListener("click", moveLeft);
+        btnRight.addEventListener("click", moveRight);
+        } else if (pageCount === 7) {
+            itemToChange.innerHTML = "";
+            for (let i = 0; i < 6; i++) {
+                const card = createRandomCard(randomArrArr[pageCount][i]);
+                itemToChange.appendChild(card);
+            };
+            itemLeft.innerHTML = '';
+            for (let i = 0; i < 6; i++) {
+                const card = createRandomCard(randomArrArr[pageCount - 1][i]);
+                itemLeft.appendChild(card);
+            };  
+            itemRight.innerHTML = '';
+            for (let i = 0; i < 6; i++) {
+                const card = createRandomCard(randomArrArr[pageCount - 1][i]);
+                itemRight.appendChild(card);
+            };
+        btnLeft.addEventListener('click', moveLeft);
+        btnRight.classList.add('disabled');
+        btnEnd.classList.add('disabled');
+        } else if (pageCount === 0) {   
+        itemToChange.innerHTML = "";
+        for (let i = 0; i < 6; i++) {
+            const card = createRandomCard(randomArrArr[pageCount][i]);
+            itemToChange.appendChild(card);
+        };  
+        itemLeft.innerHTML = '';
+        for (let i = 0; i < 6; i++) {
+        const card = createRandomCard(randomArrArr[pageCount + 1][i]);
+        itemLeft.appendChild(card);
+        };
+        itemRight.innerHTML = '';
+        for (let i = 0; i < 6; i++) {
+        const card = createRandomCard(randomArrArr[pageCount + 1][i]);
+        itemRight.appendChild(card);
+        };
+        btnRight.addEventListener('click', moveRight);
+        btnLeft.classList.add('disabled');
+        btnStart.classList.add('disabled');
+    };
+    });
+
+};
