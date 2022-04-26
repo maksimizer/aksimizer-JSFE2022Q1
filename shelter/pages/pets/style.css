@@ -356,7 +356,6 @@ header {
 }
 /*POPUP*/
 .popup {
-    overflow: scroll;
     display: flex;
     flex-direction: column;
     position: fixed;
