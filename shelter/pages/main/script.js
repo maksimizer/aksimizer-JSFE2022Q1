@@ -163,6 +163,12 @@ const popupDiseases = document.querySelector('.diseases');
 const popupParasites = document.querySelector('.parasites');
 darkener.addEventListener('click', closePopup);
 btnClose.addEventListener('click', closePopup);
+darkener.addEventListener('mouseenter', function() {
+    btnClose.classList.add('close-btn-hovered');
+});
+darkener.addEventListener('mouseout', function() {
+    btnClose.classList.remove('close-btn-hovered');
+});
 function closePopup(event) {
     if (!event.target.classList.contains('modal-window')) {
         popup.classList.add('hidden');
@@ -352,6 +358,12 @@ const popupDiseases = document.querySelector('.diseases');
 const popupParasites = document.querySelector('.parasites');
 darkener.addEventListener('click', closePopup);
 btnClose.addEventListener('click', closePopup);
+darkener.addEventListener('mouseenter', function() {
+    btnClose.classList.add('close-btn-hovered');
+});
+darkener.addEventListener('mouseout', function() {
+    btnClose.classList.remove('close-btn-hovered');
+});
 function closePopup(event) {
     if (!event.target.classList.contains('modal-window')) {
         popup.classList.add('hidden');
@@ -402,6 +414,12 @@ const popupDiseases = document.querySelector('.diseases');
 const popupParasites = document.querySelector('.parasites');
 darkener.addEventListener('click', closePopup);
 btnClose.addEventListener('click', closePopup);
+darkener.addEventListener('mouseenter', function() {
+    btnClose.classList.add('close-btn-hovered');
+});
+darkener.addEventListener('mouseout', function() {
+    btnClose.classList.remove('close-btn-hovered');
+});
 function closePopup(event) {
     if (!event.target.classList.contains('modal-window')) {
         popup.classList.add('hidden');
