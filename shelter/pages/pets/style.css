@@ -869,11 +869,17 @@ display: none;
     text-align: center;
 }
 .popup-description, .param-list {
-    font-size: 13px;
+    font-size: 10px;
     width: 220px;
     margin-top: 20px;
 }
+.popup-description {
+    margin: 0 auto;
+    margin-top: 20px;
+}
 .param-list {
+    text-align: left;
+    margin: 0 auto;
     margin-top: 24px; 
 }
 .marker {
