@@ -517,6 +517,57 @@ if ((document.documentElement.clientWidth > 767) && (document.documentElement.cl
         btnEnd.classList.remove('disabled');
         btnLeft.classList.add('disabled');
         btnStart.classList.add('disabled'); 
+        //==================POPUP======================
+
+const cards = document.querySelectorAll('.card');
+const btnClose = document.querySelector('.close-btn');
+const popup = document.querySelector('.popup');
+const modalWindow = document.querySelector('.modal-window');
+const popupPhoto = document.querySelector('.popup-photo');
+const popupName = document.querySelector('.popup-name');
+const popupType = document.querySelector('.popup-type');
+const popupDescription = document.querySelector('.popup-description');
+const popupAge = document.querySelector('.age');
+const popupInoculations = document.querySelector('.inoculations');
+const popupDiseases = document.querySelector('.diseases');
+const popupParasites = document.querySelector('.parasites');
+
+
+function closePopup(event) {
+    if (!event.target.classList.contains('modal-window')) {
+        popup.classList.add('hidden');
+        darkener.classList.remove('active');
+        document.documentElement.classList.remove('disabled');
+    };
+}; 
+darkener.addEventListener('click', closePopup);
+btnClose.addEventListener('click', closePopup);
+
+for (let item of cards) {
+    item.addEventListener('click', function() {
+        let dataIndex;
+        for (let i = 0; i < data.length; i++) {
+            if (this.id === data[i].name) {
+            dataIndex = i;
+            };
+        };
+        generatePopup(dataIndex);
+    });
+};
+function generatePopup(dataIndex) {
+    popup.classList.remove('hidden');
+    darkener.classList.add('active');
+    document.documentElement.classList.add('disabled');
+    popupPhoto.src = `../../assets/images/${data[dataIndex].name.toLowerCase()}.png`;
+    popupName.innerHTML = data[dataIndex].name;
+    popupType.innerHTML = `${data[dataIndex].type} - ${data[dataIndex].breed}`;
+    popupDescription.innerHTML = data[dataIndex].description;
+    popupAge.innerHTML = ` ${data[dataIndex].age}`;
+    popupInoculations.innerHTML = ` ${data[dataIndex].inoculations}`;
+    popupDiseases.innerHTML = ` ${data[dataIndex].diseases}`;
+    popupParasites.innerHTML = ` ${data[dataIndex].parasites}`;
+};
+
     };
     const moveRight = () => {
         carousel.classList.add('transition-right');
@@ -532,6 +583,57 @@ if ((document.documentElement.clientWidth > 767) && (document.documentElement.cl
             btnRight.classList.add('disabled');
             btnEnd.classList.add('disabled');
         };
+        //==================POPUP======================
+
+const cards = document.querySelectorAll('.card');
+const btnClose = document.querySelector('.close-btn');
+const popup = document.querySelector('.popup');
+const modalWindow = document.querySelector('.modal-window');
+const popupPhoto = document.querySelector('.popup-photo');
+const popupName = document.querySelector('.popup-name');
+const popupType = document.querySelector('.popup-type');
+const popupDescription = document.querySelector('.popup-description');
+const popupAge = document.querySelector('.age');
+const popupInoculations = document.querySelector('.inoculations');
+const popupDiseases = document.querySelector('.diseases');
+const popupParasites = document.querySelector('.parasites');
+
+
+function closePopup(event) {
+    if (!event.target.classList.contains('modal-window')) {
+        popup.classList.add('hidden');
+        darkener.classList.remove('active');
+        document.documentElement.classList.remove('disabled');
+    };
+}; 
+darkener.addEventListener('click', closePopup);
+btnClose.addEventListener('click', closePopup);
+
+for (let item of cards) {
+    item.addEventListener('click', function() {
+        let dataIndex;
+        for (let i = 0; i < data.length; i++) {
+            if (this.id === data[i].name) {
+            dataIndex = i;
+            };
+        };
+        generatePopup(dataIndex);
+    });
+};
+function generatePopup(dataIndex) {
+    popup.classList.remove('hidden');
+    darkener.classList.add('active');
+    document.documentElement.classList.add('disabled');
+    popupPhoto.src = `../../assets/images/${data[dataIndex].name.toLowerCase()}.png`;
+    popupName.innerHTML = data[dataIndex].name;
+    popupType.innerHTML = `${data[dataIndex].type} - ${data[dataIndex].breed}`;
+    popupDescription.innerHTML = data[dataIndex].description;
+    popupAge.innerHTML = ` ${data[dataIndex].age}`;
+    popupInoculations.innerHTML = ` ${data[dataIndex].inoculations}`;
+    popupDiseases.innerHTML = ` ${data[dataIndex].diseases}`;
+    popupParasites.innerHTML = ` ${data[dataIndex].parasites}`;
+};
+
     };
     const moveEnd = () => {
         itemActive.innerHTML = '';
@@ -557,6 +659,58 @@ if ((document.documentElement.clientWidth > 767) && (document.documentElement.cl
         btnStart.classList.remove('disabled');
         btnRight.classList.add('disabled');
         btnEnd.classList.add('disabled'); 
+        //==================POPUP======================
+
+const cards = document.querySelectorAll('.card');
+const btnClose = document.querySelector('.close-btn');
+const popup = document.querySelector('.popup');
+const modalWindow = document.querySelector('.modal-window');
+const popupPhoto = document.querySelector('.popup-photo');
+const popupName = document.querySelector('.popup-name');
+const popupType = document.querySelector('.popup-type');
+const popupDescription = document.querySelector('.popup-description');
+const popupAge = document.querySelector('.age');
+const popupInoculations = document.querySelector('.inoculations');
+const popupDiseases = document.querySelector('.diseases');
+const popupParasites = document.querySelector('.parasites');
+
+
+function closePopup(event) {
+    if (!event.target.classList.contains('modal-window')) {
+        popup.classList.add('hidden');
+        darkener.classList.remove('active');
+        document.documentElement.classList.remove('disabled');
+    };
+}; 
+darkener.addEventListener('click', closePopup);
+btnClose.addEventListener('click', closePopup);
+
+for (let item of cards) {
+    item.addEventListener('click', function() {
+        let dataIndex;
+        for (let i = 0; i < data.length; i++) {
+            if (this.id === data[i].name) {
+            dataIndex = i;
+            };
+        };
+        generatePopup(dataIndex);
+    });
+};
+function generatePopup(dataIndex) {
+    popup.classList.remove('hidden');
+    darkener.classList.add('active');
+    document.documentElement.classList.add('disabled');
+    popupPhoto.src = `../../assets/images/${data[dataIndex].name.toLowerCase()}.png`;
+    popupName.innerHTML = data[dataIndex].name;
+    popupType.innerHTML = `${data[dataIndex].type} - ${data[dataIndex].breed}`;
+    popupDescription.innerHTML = data[dataIndex].description;
+    popupAge.innerHTML = ` ${data[dataIndex].age}`;
+    popupInoculations.innerHTML = ` ${data[dataIndex].inoculations}`;
+    popupDiseases.innerHTML = ` ${data[dataIndex].diseases}`;
+    popupParasites.innerHTML = ` ${data[dataIndex].parasites}`;
+};
+
+        
     };
 
     btnLeft.addEventListener('click', moveLeft);
@@ -774,6 +928,57 @@ if (document.documentElement.clientWidth <= 767) {
         btnEnd.classList.remove('disabled');
         btnLeft.classList.add('disabled');
         btnStart.classList.add('disabled'); 
+        //==================POPUP======================
+
+const cards = document.querySelectorAll('.card');
+const btnClose = document.querySelector('.close-btn');
+const popup = document.querySelector('.popup');
+const modalWindow = document.querySelector('.modal-window');
+const popupPhoto = document.querySelector('.popup-photo');
+const popupName = document.querySelector('.popup-name');
+const popupType = document.querySelector('.popup-type');
+const popupDescription = document.querySelector('.popup-description');
+const popupAge = document.querySelector('.age');
+const popupInoculations = document.querySelector('.inoculations');
+const popupDiseases = document.querySelector('.diseases');
+const popupParasites = document.querySelector('.parasites');
+
+
+function closePopup(event) {
+    if (!event.target.classList.contains('modal-window')) {
+        popup.classList.add('hidden');
+        darkener.classList.remove('active');
+        document.documentElement.classList.remove('disabled');
+    };
+}; 
+darkener.addEventListener('click', closePopup);
+btnClose.addEventListener('click', closePopup);
+
+for (let item of cards) {
+    item.addEventListener('click', function() {
+        let dataIndex;
+        for (let i = 0; i < data.length; i++) {
+            if (this.id === data[i].name) {
+            dataIndex = i;
+            };
+        };
+        generatePopup(dataIndex);
+    });
+};
+function generatePopup(dataIndex) {
+    popup.classList.remove('hidden');
+    darkener.classList.add('active');
+    document.documentElement.classList.add('disabled');
+    popupPhoto.src = `../../assets/images/${data[dataIndex].name.toLowerCase()}.png`;
+    popupName.innerHTML = data[dataIndex].name;
+    popupType.innerHTML = `${data[dataIndex].type} - ${data[dataIndex].breed}`;
+    popupDescription.innerHTML = data[dataIndex].description;
+    popupAge.innerHTML = ` ${data[dataIndex].age}`;
+    popupInoculations.innerHTML = ` ${data[dataIndex].inoculations}`;
+    popupDiseases.innerHTML = ` ${data[dataIndex].diseases}`;
+    popupParasites.innerHTML = ` ${data[dataIndex].parasites}`;
+};
+
     };
     const moveRight = () => {
         carousel.classList.add('transition-right');
@@ -789,6 +994,57 @@ if (document.documentElement.clientWidth <= 767) {
             btnRight.classList.add('disabled');
             btnEnd.classList.add('disabled');
         };
+        //==================POPUP======================
+
+const cards = document.querySelectorAll('.card');
+const btnClose = document.querySelector('.close-btn');
+const popup = document.querySelector('.popup');
+const modalWindow = document.querySelector('.modal-window');
+const popupPhoto = document.querySelector('.popup-photo');
+const popupName = document.querySelector('.popup-name');
+const popupType = document.querySelector('.popup-type');
+const popupDescription = document.querySelector('.popup-description');
+const popupAge = document.querySelector('.age');
+const popupInoculations = document.querySelector('.inoculations');
+const popupDiseases = document.querySelector('.diseases');
+const popupParasites = document.querySelector('.parasites');
+
+
+function closePopup(event) {
+    if (!event.target.classList.contains('modal-window')) {
+        popup.classList.add('hidden');
+        darkener.classList.remove('active');
+        document.documentElement.classList.remove('disabled');
+    };
+}; 
+darkener.addEventListener('click', closePopup);
+btnClose.addEventListener('click', closePopup);
+
+for (let item of cards) {
+    item.addEventListener('click', function() {
+        let dataIndex;
+        for (let i = 0; i < data.length; i++) {
+            if (this.id === data[i].name) {
+            dataIndex = i;
+            };
+        };
+        generatePopup(dataIndex);
+    });
+};
+function generatePopup(dataIndex) {
+    popup.classList.remove('hidden');
+    darkener.classList.add('active');
+    document.documentElement.classList.add('disabled');
+    popupPhoto.src = `../../assets/images/${data[dataIndex].name.toLowerCase()}.png`;
+    popupName.innerHTML = data[dataIndex].name;
+    popupType.innerHTML = `${data[dataIndex].type} - ${data[dataIndex].breed}`;
+    popupDescription.innerHTML = data[dataIndex].description;
+    popupAge.innerHTML = ` ${data[dataIndex].age}`;
+    popupInoculations.innerHTML = ` ${data[dataIndex].inoculations}`;
+    popupDiseases.innerHTML = ` ${data[dataIndex].diseases}`;
+    popupParasites.innerHTML = ` ${data[dataIndex].parasites}`;
+};
+
     };
     const moveEnd = () => {
         itemActive.innerHTML = '';
@@ -814,6 +1070,57 @@ if (document.documentElement.clientWidth <= 767) {
         btnStart.classList.remove('disabled');
         btnRight.classList.add('disabled');
         btnEnd.classList.add('disabled'); 
+        //==================POPUP======================
+
+const cards = document.querySelectorAll('.card');
+const btnClose = document.querySelector('.close-btn');
+const popup = document.querySelector('.popup');
+const modalWindow = document.querySelector('.modal-window');
+const popupPhoto = document.querySelector('.popup-photo');
+const popupName = document.querySelector('.popup-name');
+const popupType = document.querySelector('.popup-type');
+const popupDescription = document.querySelector('.popup-description');
+const popupAge = document.querySelector('.age');
+const popupInoculations = document.querySelector('.inoculations');
+const popupDiseases = document.querySelector('.diseases');
+const popupParasites = document.querySelector('.parasites');
+
+
+function closePopup(event) {
+    if (!event.target.classList.contains('modal-window')) {
+        popup.classList.add('hidden');
+        darkener.classList.remove('active');
+        document.documentElement.classList.remove('disabled');
+    };
+}; 
+darkener.addEventListener('click', closePopup);
+btnClose.addEventListener('click', closePopup);
+
+for (let item of cards) {
+    item.addEventListener('click', function() {
+        let dataIndex;
+        for (let i = 0; i < data.length; i++) {
+            if (this.id === data[i].name) {
+            dataIndex = i;
+            };
+        };
+        generatePopup(dataIndex);
+    });
+};
+function generatePopup(dataIndex) {
+    popup.classList.remove('hidden');
+    darkener.classList.add('active');
+    document.documentElement.classList.add('disabled');
+    popupPhoto.src = `../../assets/images/${data[dataIndex].name.toLowerCase()}.png`;
+    popupName.innerHTML = data[dataIndex].name;
+    popupType.innerHTML = `${data[dataIndex].type} - ${data[dataIndex].breed}`;
+    popupDescription.innerHTML = data[dataIndex].description;
+    popupAge.innerHTML = ` ${data[dataIndex].age}`;
+    popupInoculations.innerHTML = ` ${data[dataIndex].inoculations}`;
+    popupDiseases.innerHTML = ` ${data[dataIndex].diseases}`;
+    popupParasites.innerHTML = ` ${data[dataIndex].parasites}`;
+};
+
     };
 
     btnLeft.addEventListener('click', moveLeft);
