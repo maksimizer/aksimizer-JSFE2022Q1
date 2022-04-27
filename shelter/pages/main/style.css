@@ -645,6 +645,7 @@ body {
     transition: 0.5s;
     border: 2px solid #FDDCC4;
 }
+
 .hidden {
     display: none;
 }
