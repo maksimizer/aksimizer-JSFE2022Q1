@@ -80,7 +80,9 @@ header {
     transition: 0.5s;
      padding-bottom: 3px;
 }
-
+.disabled {
+    overflow: hidden;
+}
 .nav-link {
     font-family: 'Arial';
     font-style: normal;
@@ -210,16 +212,7 @@ header {
     border-color: #F1CDB3;
     background-color: #F1CDB3 ;
 }
-.disabled {
-    color: #CDCDCD;
-    border-color: #CDCDCD;
-    cursor: auto;
-}
-.disabled:hover{
-    color: #CDCDCD;
-    border-color: #CDCDCD;
-    background-color: transparent;
-}
+
 
 .card {
     width: 270px;
