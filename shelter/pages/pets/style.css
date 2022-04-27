@@ -449,6 +449,12 @@ header {
     transition: 0.5s;  
     background-image: url(../../assets/images/close.png);
 }
+.close-btn:hover {
+    cursor: pointer;
+    background-color: #FDDCC4;
+    transition: 0.5s;
+    border: 2px solid #FDDCC4;
+}
 .close-btn-hovered {
     cursor: pointer;
     background-color: #FDDCC4;
