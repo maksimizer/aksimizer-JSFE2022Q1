@@ -182,6 +182,12 @@ function closePopup(event) {
         document.documentElement.classList.remove('disabled');
     };
 }; 
+darkener.addEventListener('mouseenter', function() {
+    btnClose.classList.add('close-btn-hovered');
+});
+darkener.addEventListener('mouseout', function() {
+    btnClose.classList.remove('close-btn-hovered');
+});
 darkener.addEventListener('click', closePopup);
 btnClose.addEventListener('click', closePopup);
 
@@ -273,6 +279,12 @@ function closePopup(event) {
         document.documentElement.classList.remove('disabled');
     };
 }; 
+darkener.addEventListener('mouseenter', function() {
+    btnClose.classList.add('close-btn-hovered');
+});
+darkener.addEventListener('mouseout', function() {
+    btnClose.classList.remove('close-btn-hovered');
+});
 darkener.addEventListener('click', closePopup);
 btnClose.addEventListener('click', closePopup);
 
@@ -401,6 +413,12 @@ function closePopup(event) {
         document.documentElement.classList.remove('disabled');
     };
 }; 
+darkener.addEventListener('mouseenter', function() {
+    btnClose.classList.add('close-btn-hovered');
+});
+darkener.addEventListener('mouseout', function() {
+    btnClose.classList.remove('close-btn-hovered');
+});
 darkener.addEventListener('click', closePopup);
 btnClose.addEventListener('click', closePopup);
 
@@ -540,6 +558,12 @@ function closePopup(event) {
         document.documentElement.classList.remove('disabled');
     };
 }; 
+darkener.addEventListener('mouseenter', function() {
+    btnClose.classList.add('close-btn-hovered');
+});
+darkener.addEventListener('mouseout', function() {
+    btnClose.classList.remove('close-btn-hovered');
+});
 darkener.addEventListener('click', closePopup);
 btnClose.addEventListener('click', closePopup);
 
@@ -606,6 +630,12 @@ function closePopup(event) {
         document.documentElement.classList.remove('disabled');
     };
 }; 
+darkener.addEventListener('mouseenter', function() {
+    btnClose.classList.add('close-btn-hovered');
+});
+darkener.addEventListener('mouseout', function() {
+    btnClose.classList.remove('close-btn-hovered');
+});
 darkener.addEventListener('click', closePopup);
 btnClose.addEventListener('click', closePopup);
 
@@ -682,6 +712,12 @@ function closePopup(event) {
         document.documentElement.classList.remove('disabled');
     };
 }; 
+darkener.addEventListener('mouseenter', function() {
+    btnClose.classList.add('close-btn-hovered');
+});
+darkener.addEventListener('mouseout', function() {
+    btnClose.classList.remove('close-btn-hovered');
+});
 darkener.addEventListener('click', closePopup);
 btnClose.addEventListener('click', closePopup);
 
@@ -811,6 +847,12 @@ function closePopup(event) {
         document.documentElement.classList.remove('disabled');
     };
 }; 
+darkener.addEventListener('mouseenter', function() {
+    btnClose.classList.add('close-btn-hovered');
+});
+darkener.addEventListener('mouseout', function() {
+    btnClose.classList.remove('close-btn-hovered');
+});
 darkener.addEventListener('click', closePopup);
 btnClose.addEventListener('click', closePopup);
 
@@ -951,6 +993,12 @@ function closePopup(event) {
         document.documentElement.classList.remove('disabled');
     };
 }; 
+darkener.addEventListener('mouseenter', function() {
+    btnClose.classList.add('close-btn-hovered');
+});
+darkener.addEventListener('mouseout', function() {
+    btnClose.classList.remove('close-btn-hovered');
+});
 darkener.addEventListener('click', closePopup);
 btnClose.addEventListener('click', closePopup);
 
@@ -1017,6 +1065,12 @@ function closePopup(event) {
         document.documentElement.classList.remove('disabled');
     };
 }; 
+darkener.addEventListener('mouseenter', function() {
+    btnClose.classList.add('close-btn-hovered');
+});
+darkener.addEventListener('mouseout', function() {
+    btnClose.classList.remove('close-btn-hovered');
+});
 darkener.addEventListener('click', closePopup);
 btnClose.addEventListener('click', closePopup);
 
@@ -1093,6 +1147,12 @@ function closePopup(event) {
         document.documentElement.classList.remove('disabled');
     };
 }; 
+darkener.addEventListener('mouseenter', function() {
+    btnClose.classList.add('close-btn-hovered');
+});
+darkener.addEventListener('mouseout', function() {
+    btnClose.classList.remove('close-btn-hovered');
+});
 darkener.addEventListener('click', closePopup);
 btnClose.addEventListener('click', closePopup);
 
@@ -1221,6 +1281,12 @@ function closePopup(event) {
         document.documentElement.classList.remove('disabled');
     };
 }; 
+darkener.addEventListener('mouseenter', function() {
+    btnClose.classList.add('close-btn-hovered');
+});
+darkener.addEventListener('mouseout', function() {
+    btnClose.classList.remove('close-btn-hovered');
+});
 darkener.addEventListener('click', closePopup);
 btnClose.addEventListener('click', closePopup);
 
@@ -1277,6 +1343,12 @@ function closePopup(event) {
         document.documentElement.classList.remove('disabled');
     };
 }; 
+darkener.addEventListener('mouseenter', function() {
+    btnClose.classList.add('close-btn-hovered');
+});
+darkener.addEventListener('mouseout', function() {
+    btnClose.classList.remove('close-btn-hovered');
+});
 darkener.addEventListener('click', closePopup);
 btnClose.addEventListener('click', closePopup);
 
