@@ -1,7 +1,9 @@
 html {
     scroll-behavior: smooth;
 }
-
+.disabled {
+    overflow: hidden;
+}
 * {
     box-sizing: border-box;
 }
