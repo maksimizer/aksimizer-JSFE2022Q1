@@ -4,6 +4,9 @@ export interface IEndpointSources {
 
 }
 
+export interface ILoaderOptions {
+  apiKey: string;
+}
 export interface IEndpointEverything {
   status: string;
   totalResults: number;
