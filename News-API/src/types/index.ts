@@ -27,7 +27,7 @@ export interface ISourceExtended extends ISource {
 
 export interface IArticle {
     source: ISource;
-    autthor: string;
+    author: string;
     title: string;
     description: string;
     url: string;
