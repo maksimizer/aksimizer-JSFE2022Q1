@@ -10,7 +10,8 @@ class Loader {
 
     getResp<T>(
         { endpoint, options = {} }: { endpoint: string; options?: { sources?: string } },
-        callback:(data: T) => void): void {
+        callback: (data: T) => void
+    ): void {
         this.load('GET', endpoint, callback, options);
     }
 
