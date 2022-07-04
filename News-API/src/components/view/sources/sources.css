@@ -32,3 +32,25 @@
     font-weight: 400;
     white-space: nowrap;
 }
+
+@media (min-width: 769px) {
+    .sources {
+        flex-direction: column;
+        width: max-content;
+        height: 100%;
+        align-items: center;
+        font: 300 1em 'Fira Sans', sans-serif;
+    }
+    .source__item-name {
+        font-weight: 400;
+        white-space: pre-wrap;
+    }
+    .source__item {
+        width: calc(100% - 10px);
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
+    }
+}

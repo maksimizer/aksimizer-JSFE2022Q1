@@ -19,12 +19,17 @@ body {
     color: #fff;
     background: #17181c;
     font-family: sans-serif;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
+}
+main{ 
+    margin:  0px 10px;
 }
 
 header {
+    display: flex;
     padding: 10px 30px;
+    justify-content: center;
 }
 
 header h1 {
@@ -78,4 +83,12 @@ footer .copyright:before {
 
 .course-link:hover {
     filter: invert(60%) sepia(70%) saturate(773%) hue-rotate(56deg) brightness(100%) contrast(75%);
+}
+
+@media (min-width: 769px) {
+    main {
+        display: flex;
+        column-gap: 20px;
+        justify-content: center;
+    }
 }

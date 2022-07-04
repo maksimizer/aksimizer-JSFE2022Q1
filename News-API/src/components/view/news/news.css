@@ -164,3 +164,9 @@
         padding-left: 25px;
     }
 }
+
+@media (min-width: 769px) {
+    .news__item {
+    margin-top: 8px;
+    }
+}
