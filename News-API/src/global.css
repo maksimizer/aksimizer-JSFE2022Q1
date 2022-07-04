@@ -17,19 +17,28 @@ footer {
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
-footer .copyright {
+footer {
     font-size: 14px;
-    color: #333;
+    color: #fff;
     text-align: center;
 }
-footer .copyright a {
-    color: #444;
+footer a {
+    text-decoration: none;
+    color: #70d6ff;
+    transition: 0.25s;
 }
-footer .copyright a:hover {
-    color: #555;
+footer a:hover {
+    color: #69db7e;
+    transform: translateY(-0.25em);
 }
 footer .copyright:before {
     content: '©';
+}
+
+.footer-date,
+.copyright {
+    display: flex;
+    gap: 15px;
 }
