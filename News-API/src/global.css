@@ -41,4 +41,22 @@ footer .copyright:before {
 .copyright {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.course-link {
+    display: inline-block;
+    background-image: url(./img/rss.svg);
+    filter: invert(65%) sepia(32%) saturate(4279%) hue-rotate(171deg) brightness(110%) contrast(95%);
+    width: 80px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+ 
+}
+
+.course-link:hover {
+    filter: invert(60%) sepia(70%) saturate(773%) hue-rotate(56deg) brightness(100%) contrast(75%);
 }
