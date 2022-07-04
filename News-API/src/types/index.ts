@@ -1,23 +1,23 @@
-export interface IEndpointSources {
+export interface EndpointSources {
     status: string;
-    sources: ISourceExtended[];
+    sources: SourceExtended[];
 }
 
-export interface ILoaderOptions {
+export interface LoaderOptions {
     apiKey: string;
 }
-export interface IEndpointEverything {
+export interface EndpointEverything {
     status: string;
     totalResults: number;
-    articles: IArticle[];
+    articles: Article[];
 }
 
-export interface ISource {
+export interface Source {
     id: string;
     name: string;
 }
 
-export interface ISourceExtended extends ISource {
+export interface SourceExtended extends Source {
     description: string;
     url: string;
     category: string;
@@ -25,8 +25,8 @@ export interface ISourceExtended extends ISource {
     country: string;
 }
 
-export interface IArticle {
-    source: ISource;
+export interface Article {
+    source: Source;
     author: string;
     title: string;
     description: string;
