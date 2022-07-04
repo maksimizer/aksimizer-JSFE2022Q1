@@ -1,8 +1,8 @@
-import { IEndpointEverything, IEndpointSources } from '../../types/index';
+import { EndpointEverything, EndpointSources } from '../../types/index';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-    getSources(callback: (data: IEndpointSources) => void) {
+    getSources(callback: (data: EndpointSources) => void): void {
         super.getResp(
             {
                 endpoint: 'sources',
@@ -11,7 +11,7 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e: Event, callback: (data: IEndpointEverything) => void) {
+    getNews(e: Event, callback: (data: EndpointEverything) => void): void {
         let target = e.target as HTMLElement;
         const newsContainer = e.currentTarget as HTMLElement;
 
