@@ -6,5 +6,6 @@ export interface Boat {
     producer: string,
     color: string,
     size: string,
+    seats: string,
     favorite: boolean,
 }

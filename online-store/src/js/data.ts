@@ -8,6 +8,7 @@ export const data: Boat[] = [
       producer: 'Angler',
       color: 'красный',
       size: '330',
+      seats: '3',
       favorite: false,
     },
     {
@@ -18,6 +19,7 @@ export const data: Boat[] = [
         producer: 'BoatMaster',
         color: 'зеленый',
         size: '250',
+        seats: '1',
         favorite: false,
     },
     {
@@ -28,6 +30,7 @@ export const data: Boat[] = [
         producer: 'BoatMaster',
         color: 'серый',
         size: '300',
+        seats: '2',
         favorite: false,
     },
     {
@@ -38,6 +41,7 @@ export const data: Boat[] = [
         producer: 'BoatMaaster',
         color: 'зеленый',
         size: '320',
+        seats: '3',
         favorite: false,
     },
     {
@@ -48,6 +52,7 @@ export const data: Boat[] = [
         producer: 'BoatMaaster',
         color: 'серый',
         size: '320',
+        seats: '3',
         favorite: true,
     },
     {
@@ -58,6 +63,7 @@ export const data: Boat[] = [
         producer: 'Helios',
         color: 'зеленый',
         size: '250',
+        seats: '1',
         favorite: false,
     },
     {
@@ -68,6 +74,7 @@ export const data: Boat[] = [
         producer: 'Kolibri',
         color: 'зеленый',
         size: '250',
+        seats: '1',
         favorite: true,
     },
     {
@@ -78,6 +85,7 @@ export const data: Boat[] = [
         producer: 'Kolibri',
         color: 'зеленый',
         size: '330',
+        seats: '3',
         favorite: true,
     },
     {
@@ -88,6 +96,7 @@ export const data: Boat[] = [
         producer: 'Адмирал',
         color: 'серый',
         size: '250',
+        seats: '2',
         favorite: false,
     },
     {
@@ -98,6 +107,7 @@ export const data: Boat[] = [
         producer: 'Адмирал',
         color: 'серый',
         size: '330',
+        seats: '3',
         favorite: false,
     },
     {
@@ -106,8 +116,9 @@ export const data: Boat[] = [
         quantity: '3',
         year: '2022',
         producer: 'Пилот',
-        color: 'зеленый',
+        color: 'кмф',
         size: '300',
+        seats: '2',
         favorite: false,
     },
     {
@@ -118,6 +129,7 @@ export const data: Boat[] = [
         producer: 'Пилот',
         color: 'серый',
         size: '300',
+        seats: '2',
         favorite: false,
     },
     {
@@ -128,6 +140,7 @@ export const data: Boat[] = [
         producer: 'Пилот',
         color: 'зеленый',
         size: '320',
+        seats: '3',
         favorite: false,
     },
     {
@@ -138,6 +151,7 @@ export const data: Boat[] = [
         producer: 'Пилот',
         color: 'кмф',
         size: '320',
+        seats: '3',
         favorite: false,
     },
     {
@@ -148,6 +162,7 @@ export const data: Boat[] = [
         producer: 'Пилот',
         color: 'кмф',
         size: '330',
+        seats: '3',
         favorite: true,
     },
     {
@@ -158,6 +173,7 @@ export const data: Boat[] = [
         producer: 'Таймень',
         color: 'серый',
         size: '250',
+        seats: '1',
         favorite: false,
     },
     {
@@ -168,6 +184,7 @@ export const data: Boat[] = [
         producer: 'Таймень',
         color: 'серый',
         size: '320',
+        seats: '3',
         favorite: false,
     },
     {
@@ -178,6 +195,7 @@ export const data: Boat[] = [
         producer: 'Таймень',
         color: 'красный',
         size: '330',
+        seats: '3',
         favorite: true,
     },
     {
@@ -188,6 +206,7 @@ export const data: Boat[] = [
         producer: 'Феникс',
         color: 'серый',
         size: '250',
+        seats: '1',
         favorite: false,
     },
     {
@@ -198,6 +217,7 @@ export const data: Boat[] = [
         producer: 'Феникс',
         color: 'зеленый',
         size: '300',
+        seats: '2',
         favorite: false,
     },
 ]
