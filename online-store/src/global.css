@@ -6,8 +6,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url(./assets/background.jpg);
+    background-image: url(./assets/img/background.jpg);
     background-size:cover;
     background-attachment: fixed;
 }
+
+
 
