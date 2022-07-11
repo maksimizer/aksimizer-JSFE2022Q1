@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url(./assets/background.jpg);
+    background-size:cover;
+    background-attachment: fixed;
+}
+
