@@ -19,10 +19,10 @@ const baseConfig = {
                 use: 'ts-loader',
             },
             {
-                test: /\.(png|jpg|svg|gif|ico)$/i,
+                test: /\.(png|jpg|svg|gif)$/i,
                 loader: 'file-loader',
                 options: {
-                    outputPath: 'assets',
+                    outputPath: 'assets/img',
                     name: '[name].[ext]',
                 },
             },
