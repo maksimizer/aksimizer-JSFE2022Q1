@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-body {
+.body {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,5 +11,93 @@ body {
     background-attachment: fixed;
 }
 
+.header-container {
+    max-width: 1400px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
+.nav {
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    column-gap: 30px;
+    align-items: center;
+}
 
+.logo {
+    height: 70px;
+    width: 70px;
+    transition: 0.5s;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.store-name {
+    margin: 0;
+}
+
+.cart {
+    display: flex;
+    font-size: 32px;
+    font-weight: bold;
+    align-items: center;
+    padding-left: 15px;
+    width: 70px;
+    background-image: url(./assets/img/shopping_cart.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.footer-container {
+    max-width: 1400px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer-date {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.github {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.github:hover {
+    transform: scale(1.1);
+}
+
+.course-link {
+    display: inline-block;
+    background-image: url(./assets/img/rss.svg);
+    background-position: center;
+    width: 100px;
+    height: 35px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.course-link:hover {
+    transform: scale(1.1);
+}
