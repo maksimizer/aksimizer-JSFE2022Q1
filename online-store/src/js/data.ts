@@ -1,15 +1,15 @@
 import { Boat } from '../types/index';
 export const data: Boat[] = [
     {
-      num: '1',
-      name: 'Angler 330',
-      quantity: '3',
-      year: '2022',
-      producer: 'Angler',
-      color: 'красный',
-      size: '330',
-      seats: '3',
-      favorite: false,
+        num: '1',
+        name: 'Angler 330',
+        quantity: '3',
+        year: '2022',
+        producer: 'Angler',
+        color: 'красный',
+        size: '330',
+        seats: '3',
+        favorite: false,
     },
     {
         num: '2',
@@ -220,4 +220,4 @@ export const data: Boat[] = [
         seats: '2',
         favorite: false,
     },
-]
+];
