@@ -56,7 +56,8 @@ h5 {
 .button1:hover,
 .button2:hover,
 .color-button:hover,
-.favorite-button:hover {
+.favorite-button:hover,
+.button-clear:hover {
     cursor: pointer;
     transform: scale(1.05);
 }
@@ -169,7 +170,6 @@ background-color: rgba(0, 225, 225, 0.5);
 
 .search {
     text-align: center;
-    
     font-size: 16px;
     height: 27px;
     width: 100%;
@@ -180,4 +180,37 @@ background-color: rgba(0, 225, 225, 0.5);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: right;
+    margin-bottom: 20px;
+}
+
+.sort {
+    font-size: 16px;
+    height: 27px;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+.clear-buttons-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.button-clear {
+    font-weight: 600;
+    padding: 3px;
+    margin: 3px;
+    font-size: 16px;
+    border: 2px solid black;
+    background-color: rgba(0, 225, 225, 0.5);
+    transition: 0.3s;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.button-clear:active {
+    transform: scale(1);
+    background-color:rgba(0, 225, 225, 0.5);
 }

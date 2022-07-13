@@ -66,9 +66,22 @@
                 </div>
             </div>
             <div class="filter-group">
-                <h4>Поиск по наименованию</h4>
+                <h4>Поиск по наименованию:</h4>
                 <div class="filter-search-container">
                     <input class="search" type="text" placeholder="Введите наименование">
+                </div>
+                <h4>Сортировка:</h4>
+                <div class="sort-container">
+                    <select class="sort">
+                        <option selected value="A-Z">По наименованию, от А до Я</option>
+                        <option value="Z-A">По наименованию, от Я до А</option>
+                        <option value="quantity+">По возрастанию количества</option>
+                        <option value="quantity-">По убыванию количества</option>
+                     </select>
+                </div>
+                <div class="clear-buttons-container">
+                    <button class="button-clear">Сбросить фильтры</button>
+                    <button class="button-clear">Сбросить настройки</button>
                 </div>
             </div>
         </div>
