@@ -212,5 +212,16 @@ background-color: rgba(0, 225, 225, 0.5);
 
 .button-clear:active {
     transform: scale(1);
-    background-color:rgba(0, 225, 225, 0.5);
+}
+
+
+@media (max-width: 1024px) {
+    .filters-container {
+        flex-direction: column;
+        row-gap: 10px;
+    }
+    .filter-group {
+        flex-direction: column;
+        width: 100%;
+    }
 }
