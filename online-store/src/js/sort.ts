@@ -1,6 +1,12 @@
 import { data } from './data';
 import { createCards } from './cards';
 
+export function getStoragedValue() {
+    const select = document.querySelector('.sort') as HTMLSelectElement;
+    const storagedValue = localStorage.getItem('sort');
+    if (storagedValue) select.value = storagedValue;
+}
+
 export function sortData() {
     const select = document.querySelector('.sort') as HTMLSelectElement;
     select.addEventListener('change', sortData);
