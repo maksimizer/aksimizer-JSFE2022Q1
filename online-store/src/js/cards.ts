@@ -1,7 +1,5 @@
 import '../style/cards.css';
-import { data } from './data';
-
-const sortedData = data; // will be sorted and filtered array of goods
+import { sortedData } from './sort';
 
 export function createCards(): void {
     const fragment = document.createDocumentFragment() as DocumentFragment;
