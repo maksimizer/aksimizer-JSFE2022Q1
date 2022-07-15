@@ -1,13 +1,11 @@
 import '../style/cards.css';
-import { data } from './data';
+import { Boat } from '../types/index';
 
-const sortedData = data; // will be sorted and filtered array of goods
-
-export function createCards(): void {
+export function createCards(data: Boat[]): void {
     const fragment = document.createDocumentFragment() as DocumentFragment;
     const cardTemplate = document.querySelector('#card-template') as HTMLTemplateElement;
 
-    sortedData.forEach((item) => {
+    data.forEach((item) => {
         const cardClone = cardTemplate.content.cloneNode(true) as HTMLElement;
 
         (cardClone.querySelector(
