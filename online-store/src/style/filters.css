@@ -133,10 +133,12 @@ background-color: rgba(0, 225, 225, 0.5);
     border: 3px solid black;
     box-shadow: none;
     height: 10px;
+    cursor: pointer;
 }
 
 .noUi-connect {
     background: rgba(0, 225, 225, 0.5);
+    cursor: pointer;
 }
 
 .noUi-handle::after,
@@ -153,6 +155,7 @@ background-color: rgba(0, 225, 225, 0.5);
     right: -10px;
     top: -8px;
     border: none;
+    cursor: pointer;
 }
 
 .slider-value {
@@ -190,6 +193,7 @@ background-color: rgba(0, 225, 225, 0.5);
     border: 1px solid black;
     border-radius: 10px;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .clear-buttons-container{

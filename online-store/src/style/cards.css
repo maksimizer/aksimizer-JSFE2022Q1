@@ -44,3 +44,18 @@ ul {
     list-style: none;
     padding: 0;
 }
+
+.cart-button {
+   width: 60px;
+   height: 60px;
+   background-position: center;
+   background-size: contain;
+   background-repeat: no-repeat;
+   cursor: pointer;
+   transition: 0.5s;
+   margin-bottom: 10px;
+}
+
+.cart-button:hover {
+transform: scale(1.1);
+}

@@ -1,13 +1,13 @@
 import '../style/cards.css';
 import { data } from './data';
 
-const testSortedData = data; // will be sorted and filtered array of goods
+const sortedData = data; // will be sorted and filtered array of goods
 
 export function createCards(): void {
     const fragment = document.createDocumentFragment() as DocumentFragment;
     const cardTemplate = document.querySelector('#card-template') as HTMLTemplateElement;
 
-    testSortedData.forEach((item) => {
+    sortedData.forEach((item) => {
         const cardClone = cardTemplate.content.cloneNode(true) as HTMLElement;
 
         (cardClone.querySelector(
@@ -22,7 +22,9 @@ export function createCards(): void {
         (cardClone.querySelector('.item-favorite') as HTMLElement).textContent = item.favorite
             ? 'Популярный'
             : 'Непопулярный';
-
+        (cardClone.querySelector(
+            '.cart-button'
+        ) as HTMLElement).style.backgroundImage = `url('./assets/img/add_cart.svg')`;
         fragment.append(cardClone);
     });
 
