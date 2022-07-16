@@ -12,7 +12,7 @@ export const data: Boat[] = [
     },
     {
         num: '2',
-        name: 'BoatMaaster 250',
+        name: 'BoatMaster 250',
         quantity: '2',
         producer: 'BoatMaster',
         color: 'зеленый',
@@ -22,7 +22,7 @@ export const data: Boat[] = [
     },
     {
         num: '3',
-        name: 'BoatMaaster 300',
+        name: 'BoatMaster 300',
         quantity: '5',
         producer: 'BoatMaster',
         color: 'серый',
@@ -32,9 +32,9 @@ export const data: Boat[] = [
     },
     {
         num: '4',
-        name: 'BoatMaaster 320',
+        name: 'BoatMaster 320',
         quantity: '3',
-        producer: 'BoatMaaster',
+        producer: 'BoatMaster',
         color: 'зеленый',
         size: '320',
         seats: '3',
@@ -42,9 +42,9 @@ export const data: Boat[] = [
     },
     {
         num: '5',
-        name: 'BoatMaaster 320+',
+        name: 'BoatMaster 320+',
         quantity: '6',
-        producer: 'BoatMaaster',
+        producer: 'BoatMaster',
         color: 'серый',
         size: '320',
         seats: '3',

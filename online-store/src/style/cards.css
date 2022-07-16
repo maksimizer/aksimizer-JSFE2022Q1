@@ -1,7 +1,7 @@
 .cards-container {
     display: flex;
     margin: 0 auto;
-    justify-content: space-around;
+    justify-content: center;
     gap: 10px;
     max-width: 1400px;
     padding-left: 20px;
@@ -58,4 +58,8 @@ ul {
 
 .cart-button:hover {
 transform: scale(1.1);
+}
+
+.search-hidden {
+    display: none;
 }

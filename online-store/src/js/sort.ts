@@ -1,5 +1,6 @@
 import { data } from './data';
 import { createCards } from './cards';
+import { search } from './search';
 
 export function getStoragedValue() {
     const select = document.querySelector('.sort') as HTMLSelectElement;
@@ -58,4 +59,5 @@ export function sortData() {
             break;
     }
     createCards(data);
+    search();
 }

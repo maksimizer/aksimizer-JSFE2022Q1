@@ -218,7 +218,6 @@ background-color: rgba(0, 225, 225, 0.5);
     transform: scale(1);
 }
 
-
 @media (max-width: 1024px) {
     .filters-container {
         flex-direction: column;

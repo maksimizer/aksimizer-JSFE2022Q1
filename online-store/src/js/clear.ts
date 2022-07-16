@@ -1,4 +1,4 @@
-export function addClearStorageEvent() {
+export function addClearStorage() {
     (document.querySelector('.clear-storage') as HTMLElement).addEventListener('click', clearStorage);
 }
 
