@@ -171,6 +171,10 @@ background-color: rgba(0, 225, 225, 0.5);
     border-radius: 10px;
 }
 
+.filter-search-container {
+    display: flex;
+}
+
 .search {
     text-align: center;
     font-size: 16px;
@@ -184,6 +188,23 @@ background-color: rgba(0, 225, 225, 0.5);
     background-size: contain;
     background-position: right;
     margin-bottom: 20px;
+}
+
+.clear-search-button {
+    width: 15px;
+    height: 15px;
+    background-image: url(../assets/img/close.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 50px;
+    top: 192px;
+    cursor: pointer;
+}
+
+.hidden {
+display: none;
 }
 
 .sort {
