@@ -1,6 +1,6 @@
 import { ValueFilters } from '../../../types/index';
 
-export const valueFilters: ValueFilters = {
+export let valueFilters: ValueFilters = {
     producer: [],
     seats: [],
     color: [],
@@ -11,7 +11,37 @@ function setLocalStorage() {
     localStorage.setItem('valueFilters', JSON.stringify(valueFilters));
 }
 
+function getLocalStorage() {
+    const storagedStr = localStorage.getItem('valueFilters');
+    if (storagedStr) {
+        valueFilters = JSON.parse(storagedStr);
+    }
+    document.querySelectorAll('.button1').forEach((button) => {
+        const value = button.textContent as string;
+        if (valueFilters.producer.includes(value)) {
+            button.classList.add('button1-active');
+        }
+    });
+    document.querySelectorAll('.button2').forEach((button) => {
+        const value = button.textContent as string;
+        if (valueFilters.seats.includes(value)) {
+            button.classList.add('button2-active');
+        }
+    });
+    document.querySelectorAll('.color-button').forEach((button) => {
+        const value = button.textContent as string;
+        if (valueFilters.color.includes(value)) {
+            button.classList.add('color-button-active');
+        }
+    });
+    if (valueFilters.popular === true) {
+        (document.querySelector('.favorite-button') as HTMLElement).classList.add('favorite-button-active');
+    }
+}
+
 export function setValueFilters() {
+    getLocalStorage();
+
     document.querySelectorAll('.button1').forEach((button) => {
         button.addEventListener('click', setProducerFilter);
         function setProducerFilter() {
