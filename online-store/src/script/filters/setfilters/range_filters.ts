@@ -2,7 +2,7 @@ import { RangeFilters } from '../../../types/index';
 import 'nouislider/dist/nouislider.css';
 import * as noUiSlider from 'nouislider';
 
-export let rangeFilters: RangeFilters = {
+let rangeFilters: RangeFilters = {
     size: [],
     quantity: [],
 };

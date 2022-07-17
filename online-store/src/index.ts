@@ -6,6 +6,7 @@ import { setRangeFilters } from './script/filters/setfilters/range_filters';
 import { setValueFilters } from './script/filters/setfilters/value_filters';
 import { setSort } from './script/filters/setfilters/sort';
 import { setSearch } from './script/filters/setfilters/search';
+import { addListenersToGetLocalStorage, filterData } from './script/filters/filter';
 
 const sliders = new Sliders();
 sliders.draw;
@@ -16,3 +17,6 @@ setValueFilters();
 setRangeFilters();
 setSort();
 setSearch();
+
+addListenersToGetLocalStorage();
+filterData();

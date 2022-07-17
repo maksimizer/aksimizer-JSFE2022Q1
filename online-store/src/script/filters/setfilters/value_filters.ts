@@ -1,6 +1,6 @@
 import { ValueFilters } from '../../../types/index';
 
-export let valueFilters: ValueFilters = {
+let valueFilters: ValueFilters = {
     producer: [],
     seats: [],
     color: [],
@@ -37,6 +37,7 @@ function getLocalStorage() {
     if (valueFilters.popular === true) {
         (document.querySelector('.favorite-button') as HTMLElement).classList.add('favorite-button-active');
     }
+    setLocalStorage();
 }
 
 export function setValueFilters() {

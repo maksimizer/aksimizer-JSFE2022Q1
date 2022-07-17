@@ -1,12 +1,13 @@
 let search: string;
 
-const searchField = document.querySelector('.search') as HTMLInputElement;
-const clearBtn = document.querySelector('.clear-search-button') as HTMLInputElement;
+export const searchField = document.querySelector('.search') as HTMLInputElement;
+export const clearBtn = document.querySelector('.clear-search-button') as HTMLInputElement;
 
 export function setSearch() {
     getStoragedValue();
     searchField.addEventListener('keyup', getSearchString);
     clearBtn.addEventListener('click', clearSearchString);
+    localStorage.setItem('search', searchField.value);
 }
 
 export function getStoragedValue() {
