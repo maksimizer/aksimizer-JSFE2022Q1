@@ -7,8 +7,8 @@ export let rangeFilters: RangeFilters = {
     quantity: [],
 };
 
-const sliderSize = document.querySelector('.size-slider') as noUiSlider.target;
-const sliderQuantity = document.querySelector('.quantity-slider') as noUiSlider.target;
+export const sliderSize = document.querySelector('.size-slider') as noUiSlider.target;
+export const sliderQuantity = document.querySelector('.quantity-slider') as noUiSlider.target;
 
 function getLocalStorage() {
     const storagedStr = localStorage.getItem('rangeFilters');

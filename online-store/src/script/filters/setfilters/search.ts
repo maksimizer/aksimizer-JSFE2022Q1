@@ -9,7 +9,7 @@ export function setSearch() {
     clearBtn.addEventListener('click', clearSearchString);
 }
 
-function getStoragedValue() {
+export function getStoragedValue() {
     const storagedValue = localStorage.getItem('search');
     if (storagedValue) searchField.value = storagedValue;
     if (searchField.value === '') {
@@ -33,7 +33,7 @@ function getSearchString() {
     }
 }
 
-function clearSearchString() {
+export function clearSearchString() {
     searchField.value = '';
     search = searchField.value;
     searchField.focus();
