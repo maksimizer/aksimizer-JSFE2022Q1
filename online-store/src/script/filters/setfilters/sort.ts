@@ -1,10 +1,18 @@
 export let sort: string;
 
+const select = document.querySelector('.sort') as HTMLSelectElement;
+
 export function setSort() {
-    const select = document.querySelector('.sort') as HTMLSelectElement;
+    getStoragedValue();
     select.addEventListener('change', getSort);
-    function getSort() {
-        sort = select.value;
-        console.log(sort);
-    }
+}
+
+function getSort() {
+    sort = select.value;
+    localStorage.setItem('sort', sort);
+}
+
+function getStoragedValue() {
+    const storagedValue = localStorage.getItem('sort');
+    if (storagedValue) select.value = storagedValue;
 }

@@ -7,6 +7,10 @@ export const valueFilters: ValueFilters = {
     popular: false,
 };
 
+function setLocalStorage() {
+    localStorage.setItem('valueFilters', JSON.stringify(valueFilters));
+}
+
 export function setValueFilters() {
     document.querySelectorAll('.button1').forEach((button) => {
         button.addEventListener('click', setProducerFilter);
@@ -19,7 +23,7 @@ export function setValueFilters() {
                 const index = valueFilters.producer.indexOf(`${button.textContent}`);
                 valueFilters.producer.splice(index, 1);
             }
-            console.log(valueFilters);
+            setLocalStorage();
         }
     });
 
@@ -34,7 +38,7 @@ export function setValueFilters() {
                 const index = valueFilters.seats.indexOf(`${button.textContent}`);
                 valueFilters.seats.splice(index, 1);
             }
-            console.log(valueFilters);
+            setLocalStorage();
         }
     });
 
@@ -49,7 +53,7 @@ export function setValueFilters() {
                 const index = valueFilters.color.indexOf(`${button.textContent}`);
                 valueFilters.color.splice(index, 1);
             }
-            console.log(valueFilters);
+            setLocalStorage();
         }
     });
 
@@ -63,6 +67,6 @@ export function setValueFilters() {
             popularButton.classList.remove('favorite-button-active');
             valueFilters.popular = false;
         }
-        console.log(valueFilters);
+        setLocalStorage();
     }
 }
