@@ -1,18 +1,21 @@
-let search: string;
+export let search: string;
 
 export const searchField = document.querySelector('.search') as HTMLInputElement;
 export const clearBtn = document.querySelector('.clear-search-button') as HTMLInputElement;
 
 export function setSearch() {
-    getStoragedValue();
+    getSearch();
+    getSearchString();
     searchField.addEventListener('keyup', getSearchString);
     clearBtn.addEventListener('click', clearSearchString);
-    localStorage.setItem('search', searchField.value);
 }
 
-export function getStoragedValue() {
-    const storagedValue = localStorage.getItem('search');
-    if (storagedValue) searchField.value = storagedValue;
+export function getSearch() {
+    const storagedStr = localStorage.getItem('search');
+    if (storagedStr) {
+        search = storagedStr;
+        searchField.value = search;
+    }
     if (searchField.value === '') {
         clearBtn.classList.add('hidden');
         searchField.style.backgroundImage = 'url(./assets/img/search.svg)';
@@ -20,11 +23,11 @@ export function getStoragedValue() {
         clearBtn.classList.remove('hidden');
         searchField.style.backgroundImage = 'none';
     }
+    return search;
 }
 
 function getSearchString() {
     search = searchField.value;
-    localStorage.setItem('search', search);
     if (searchField.value === '') {
         clearBtn.classList.add('hidden');
         searchField.style.backgroundImage = 'url(./assets/img/search.svg)';
@@ -32,13 +35,13 @@ function getSearchString() {
         clearBtn.classList.remove('hidden');
         searchField.style.backgroundImage = 'none';
     }
+    localStorage.setItem('search', search);
 }
 
 export function clearSearchString() {
     searchField.value = '';
     search = searchField.value;
     searchField.focus();
-    localStorage.setItem('search', search);
     if (searchField.value === '') {
         clearBtn.classList.add('hidden');
         searchField.style.backgroundImage = 'url(./assets/img/search.svg)';
@@ -46,4 +49,5 @@ export function clearSearchString() {
         clearBtn.classList.remove('hidden');
         searchField.style.backgroundImage = 'none';
     }
+    localStorage.setItem('search', search);
 }

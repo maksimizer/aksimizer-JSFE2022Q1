@@ -105,7 +105,7 @@ export const data: Boat[] = [
         name: 'Пилот 300',
         quantity: '3',
         producer: 'Пилот',
-        color: 'кмф',
+        color: 'зеленый',
         size: '300',
         seats: '2',
         favorite: false,

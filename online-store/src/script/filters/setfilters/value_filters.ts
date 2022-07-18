@@ -1,17 +1,23 @@
 import { ValueFilters } from '../../../types/index';
 
-let valueFilters: ValueFilters = {
+export let valueFilters: ValueFilters = {
     producer: [],
     seats: [],
     color: [],
     popular: false,
 };
 
-function setLocalStorage() {
-    localStorage.setItem('valueFilters', JSON.stringify(valueFilters));
+export function getValueFilters() {
+    const valueFiltersStr = localStorage.getItem('valueFilters');
+    if (valueFiltersStr) {
+        valueFilters = JSON.parse(valueFiltersStr);
+    }
+    return valueFilters;
 }
 
-function getLocalStorage() {
+export function setValueFilters() {
+    getValueFilters();
+    localStorage.setItem('valueFilters', JSON.stringify(valueFilters));
     const storagedStr = localStorage.getItem('valueFilters');
     if (storagedStr) {
         valueFilters = JSON.parse(storagedStr);
@@ -37,12 +43,10 @@ function getLocalStorage() {
     if (valueFilters.popular === true) {
         (document.querySelector('.favorite-button') as HTMLElement).classList.add('favorite-button-active');
     }
-    setLocalStorage();
+    getValueFiltersValues();
 }
 
-export function setValueFilters() {
-    getLocalStorage();
-
+function getValueFiltersValues() {
     document.querySelectorAll('.button1').forEach((button) => {
         button.addEventListener('click', setProducerFilter);
         function setProducerFilter() {
@@ -54,7 +58,7 @@ export function setValueFilters() {
                 const index = valueFilters.producer.indexOf(`${button.textContent}`);
                 valueFilters.producer.splice(index, 1);
             }
-            setLocalStorage();
+            localStorage.setItem('valueFilters', JSON.stringify(valueFilters));
         }
     });
 
@@ -69,7 +73,7 @@ export function setValueFilters() {
                 const index = valueFilters.seats.indexOf(`${button.textContent}`);
                 valueFilters.seats.splice(index, 1);
             }
-            setLocalStorage();
+            localStorage.setItem('valueFilters', JSON.stringify(valueFilters));
         }
     });
 
@@ -84,7 +88,7 @@ export function setValueFilters() {
                 const index = valueFilters.color.indexOf(`${button.textContent}`);
                 valueFilters.color.splice(index, 1);
             }
-            setLocalStorage();
+            localStorage.setItem('valueFilters', JSON.stringify(valueFilters));
         }
     });
 
@@ -98,6 +102,6 @@ export function setValueFilters() {
             popularButton.classList.remove('favorite-button-active');
             valueFilters.popular = false;
         }
-        setLocalStorage();
+        localStorage.setItem('valueFilters', JSON.stringify(valueFilters));
     }
 }

@@ -2,7 +2,7 @@ import { RangeFilters } from '../../../types/index';
 import 'nouislider/dist/nouislider.css';
 import * as noUiSlider from 'nouislider';
 
-let rangeFilters: RangeFilters = {
+export let rangeFilters: RangeFilters = {
     size: [],
     quantity: [],
 };
@@ -10,17 +10,18 @@ let rangeFilters: RangeFilters = {
 export const sliderSize = document.querySelector('.size-slider') as noUiSlider.target;
 export const sliderQuantity = document.querySelector('.quantity-slider') as noUiSlider.target;
 
-function getLocalStorage() {
-    const storagedStr = localStorage.getItem('rangeFilters');
-    if (storagedStr) {
-        rangeFilters = JSON.parse(storagedStr);
+export function getRangeFilters() {
+    const rangeFiltersStr = localStorage.getItem('rangeFilters');
+    if (rangeFiltersStr) {
+        rangeFilters = JSON.parse(rangeFiltersStr);
     }
     sliderSize.noUiSlider?.set(rangeFilters.size);
     sliderQuantity.noUiSlider?.set(rangeFilters.quantity);
+    return rangeFilters;
 }
 
 export function setRangeFilters() {
-    getLocalStorage();
+    getRangeFilters();
     sliderSize.noUiSlider?.on('update', getRangeValues);
     sliderQuantity.noUiSlider?.on('update', getRangeValues);
 }

@@ -1,32 +1,33 @@
 import { data } from '../data';
 import { Boat } from '../../types/index';
-import { sliderQuantity, sliderSize } from './setfilters/range_filters';
-import * as localStorage from './localstorage';
-import { select } from './setfilters/sort';
-import { clearBtn, searchField } from './setfilters/search';
+// import { sliderQuantity, sliderSize } from './setfilters/range_filters';
+import { getLocalStorage } from './localstorage';
+// import { select } from './setfilters/sort';
+// import { clearBtn, searchField } from './setfilters/search';
 
 export let filteredData: Boat[] = [];
 
-export function addListenersToGetLocalStorage() {
-    sliderSize.noUiSlider?.on('update', localStorage.getLocalStorage);
-    sliderQuantity.noUiSlider?.on('update', localStorage.getLocalStorage);
-    select.addEventListener('change', localStorage.getLocalStorage);
-    searchField.addEventListener('keyup', localStorage.getLocalStorage);
-    clearBtn.addEventListener('click', localStorage.getLocalStorage);
-    document.querySelectorAll('.button1').forEach((button) => {
-        button.addEventListener('click', localStorage.getLocalStorage);
-    });
-    document.querySelectorAll('.button2').forEach((button) => {
-        button.addEventListener('click', localStorage.getLocalStorage);
-    });
-    document.querySelectorAll('.color-button').forEach((button) => {
-        button.addEventListener('click', localStorage.getLocalStorage);
-    });
-    const popularBtn = document.querySelector('.favorite-button') as HTMLElement;
-    popularBtn.addEventListener('click', localStorage.getLocalStorage);
-}
+// export function addListenersToGetLocalStorage() {
+//     sliderSize.noUiSlider?.on('update', localStorage.getLocalStorage);
+//     sliderQuantity.noUiSlider?.on('update', localStorage.getLocalStorage);
+//     select.addEventListener('change', localStorage.getLocalStorage);
+//     searchField.addEventListener('keyup', localStorage.getLocalStorage);
+//     clearBtn.addEventListener('click', localStorage.getLocalStorage);
+//     document.querySelectorAll('.button1').forEach((button) => {
+//         button.addEventListener('click', localStorage.getLocalStorage);
+//     });
+//     document.querySelectorAll('.button2').forEach((button) => {
+//         button.addEventListener('click', localStorage.getLocalStorage);
+//     });
+//     document.querySelectorAll('.color-button').forEach((button) => {
+//         button.addEventListener('click', localStorage.getLocalStorage);
+//     });
+//     const popularBtn = document.querySelector('.favorite-button') as HTMLElement;
+//     popularBtn.addEventListener('click', localStorage.getLocalStorage);
+// }
 
 export function filterData() {
+    getLocalStorage();
     filteredData = data.filter((boat) => {
         const fitByProducer =
             localStorage.valueFilters.producer.length == 0 ||
@@ -95,5 +96,5 @@ export function filterData() {
             });
             break;
     }
-    console.log(filteredData);
+    return filteredData;
 }
