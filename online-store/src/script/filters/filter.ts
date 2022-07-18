@@ -13,15 +13,21 @@ export function filterData() {
         const fitByColor = valueFilters.color.length == 0 || valueFilters.color.includes(boat.color);
         const fitByPopular =
             valueFilters.popular === false || (valueFilters.popular === true && valueFilters.popular === boat.favorite);
-        const fitByQuantity =
-            (rangeFilters.quantity[0] == '0' && rangeFilters.quantity[1] == '10') ||
-            (rangeFilters.quantity[0] <= boat.quantity && rangeFilters.quantity[1] >= boat.quantity);
         const fitBySize =
             (rangeFilters.size[0] == '250' && rangeFilters.size[1] == '330') ||
             (rangeFilters.size[0] <= boat.size && rangeFilters.size[1] >= boat.size);
+        const fitByQuantity = (rangeFilters.quantity[0] == '0' && rangeFilters.quantity[1] == '10') || (boat.quantity >= rangeFilters.quantity[0] && boat.quantity >= rangeFilters.quantity[1]);
         const fitBySearch = search == undefined || boat.name.toLowerCase().includes(search.toLowerCase());
-        return fitByProducer && fitBySeats && fitByColor && fitByPopular && fitByQuantity && fitBySize && fitBySearch;
+        return fitByProducer && fitBySeats && fitByColor && fitByPopular && fitBySize && fitBySearch && fitByQuantity;
     });
+
+    const noMatchesWarning = document.querySelector('.no-matches') as HTMLElement;
+    if (filteredData.length == 0) {
+        noMatchesWarning.classList.remove('hidden');
+    } else {
+        noMatchesWarning.classList.add('hidden');
+    }
+
     switch (localStorage.sort) {
         case 'A-Z':
             filteredData.sort(function (a, b) {
@@ -68,5 +74,4 @@ export function filterData() {
             });
             break;
     }
-    console.log(filteredData);
 }

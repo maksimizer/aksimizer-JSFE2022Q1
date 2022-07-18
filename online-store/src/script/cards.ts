@@ -19,42 +19,34 @@ export function addListenersToCreateCards() {
     document.querySelectorAll('.color-button').forEach((button) => {
         button.addEventListener('click', createCards);
     });
-    const popularBtn = document.querySelector('.favorite-button') as HTMLElement;
-    popularBtn.addEventListener('click', createCards);
+    (document.querySelector('.favorite-button') as HTMLElement).addEventListener('click', createCards);
 }
 
 function createCards() {
     filterData();
-    const noMatchesWarning = document.querySelector('.no-matches') as HTMLElement;
+    const fragment = document.createDocumentFragment() as DocumentFragment;
+    const cardTemplate = document.querySelector('#card-template') as HTMLTemplateElement;
+    filteredData.forEach((item) => {
+        const cardClone = cardTemplate.content.cloneNode(true) as HTMLElement;
 
-    if (filteredData.length == 0) {
-        noMatchesWarning.classList.remove('hidden');
-    } else {
-        noMatchesWarning.classList.add('hidden');
-        const fragment = document.createDocumentFragment() as DocumentFragment;
-        const cardTemplate = document.querySelector('#card-template') as HTMLTemplateElement;
-        filteredData.forEach((item) => {
-            const cardClone = cardTemplate.content.cloneNode(true) as HTMLElement;
+        (cardClone.querySelector(
+            '.item-photo'
+        ) as HTMLElement).style.backgroundImage = `url('./assets/img/goods/${item.num}.jpg')`;
+        (cardClone.querySelector('.item-name') as HTMLElement).textContent = item.name;
+        (cardClone.querySelector('.item-producer') as HTMLElement).textContent = `Производитель: ${item.producer}`;
+        (cardClone.querySelector('.item-color') as HTMLElement).textContent = `Цвет: ${item.color}`;
+        (cardClone.querySelector('.item-size') as HTMLElement).textContent = `Размер, см: ${item.size}`;
+        (cardClone.querySelector('.item-seats') as HTMLElement).textContent = `Мест, чел.: ${item.seats}`;
+        (cardClone.querySelector('.item-quantity') as HTMLElement).textContent = `В наличии, шт.: ${item.quantity}`;
+        (cardClone.querySelector('.item-favorite') as HTMLElement).textContent = item.favorite
+            ? 'Популярный'
+            : 'Непопулярный';
+        (cardClone.querySelector(
+            '.cart-button'
+        ) as HTMLElement).style.backgroundImage = `url('./assets/img/add_cart.svg')`;
+        fragment.append(cardClone);
+    });
 
-            (cardClone.querySelector(
-                '.item-photo'
-            ) as HTMLElement).style.backgroundImage = `url('./assets/img/goods/${item.num}.jpg')`;
-            (cardClone.querySelector('.item-name') as HTMLElement).textContent = item.name;
-            (cardClone.querySelector('.item-producer') as HTMLElement).textContent = `Производитель: ${item.producer}`;
-            (cardClone.querySelector('.item-color') as HTMLElement).textContent = `Цвет: ${item.color}`;
-            (cardClone.querySelector('.item-size') as HTMLElement).textContent = `Размер, см: ${item.size}`;
-            (cardClone.querySelector('.item-seats') as HTMLElement).textContent = `Мест, чел.: ${item.seats}`;
-            (cardClone.querySelector('.item-quantity') as HTMLElement).textContent = `В наличии, шт.: ${item.quantity}`;
-            (cardClone.querySelector('.item-favorite') as HTMLElement).textContent = item.favorite
-                ? 'Популярный'
-                : 'Непопулярный';
-            (cardClone.querySelector(
-                '.cart-button'
-            ) as HTMLElement).style.backgroundImage = `url('./assets/img/add_cart.svg')`;
-            fragment.append(cardClone);
-        });
-
-        (document.querySelector('.cards-container') as HTMLElement).innerHTML = '';
-        (document.querySelector('.cards-container') as HTMLElement).append(fragment);
-    }
+    (document.querySelector('.cards-container') as HTMLElement).innerHTML = '';
+    (document.querySelector('.cards-container') as HTMLElement).append(fragment);
 }
