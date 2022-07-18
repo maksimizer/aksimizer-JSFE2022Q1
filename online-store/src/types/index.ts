@@ -1,10 +1,10 @@
 export interface Boat {
     num: string;
     name: string;
-    quantity: string;
+    quantity: number;
     producer: string;
     color: string;
-    size: string;
+    size: number;
     seats: string;
     favorite: boolean;
 }
@@ -17,6 +17,6 @@ export interface ValueFilters {
 }
 
 export interface RangeFilters {
-    size: string[];
-    quantity: string[];
+    size: number[];
+    quantity: number[];
 }

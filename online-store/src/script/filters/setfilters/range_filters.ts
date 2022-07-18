@@ -30,19 +30,19 @@ function getRangeValues() {
     const sizeMin = (document.querySelector('.size-value-min') as HTMLElement).textContent;
     const sizeMax = (document.querySelector('.size-value-max') as HTMLElement).textContent;
     if (sizeMin) {
-        rangeFilters.size[0] = sizeMin;
+        rangeFilters.size[0] = Number(sizeMin);
     }
     if (sizeMax) {
-        rangeFilters.size[1] = sizeMax;
+        rangeFilters.size[1] = Number(sizeMax);
     }
 
     const quantityMin = (document.querySelector('.quantity-value-min') as HTMLElement).textContent;
     const quantityMax = (document.querySelector('.quantity-value-max') as HTMLElement).textContent;
     if (quantityMin) {
-        rangeFilters.quantity[0] = quantityMin;
+        rangeFilters.quantity[0] = Number(quantityMin);
     }
     if (quantityMax) {
-        rangeFilters.quantity[1] = quantityMax;
+        rangeFilters.quantity[1] = Number(quantityMax);
     }
     localStorage.setItem('rangeFilters', JSON.stringify(rangeFilters));
 }

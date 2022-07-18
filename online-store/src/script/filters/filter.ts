@@ -14,11 +14,11 @@ export function filterData() {
         const fitByPopular =
             valueFilters.popular === false || (valueFilters.popular === true && valueFilters.popular === boat.favorite);
         const fitBySize =
-            (rangeFilters.size[0] == '250' && rangeFilters.size[1] == '330') ||
-            (rangeFilters.size[0] <= boat.size && rangeFilters.size[1] >= boat.size);
+            (rangeFilters.size[0] == 250 && rangeFilters.size[1] == 330) ||
+            (boat.size >= rangeFilters.size[0] && boat.size <= rangeFilters.size[1]);
         const fitByQuantity =
-            (rangeFilters.quantity[0] == '0' && rangeFilters.quantity[1] == '10') ||
-            (boat.quantity >= rangeFilters.quantity[0] && boat.quantity >= rangeFilters.quantity[1]);
+            (rangeFilters.quantity[0] == 0 && rangeFilters.quantity[1] == 10) ||
+            (boat.quantity >= rangeFilters.quantity[0] && boat.quantity <= rangeFilters.quantity[1]);
         const fitBySearch = search == undefined || boat.name.toLowerCase().includes(search.toLowerCase());
         return fitByProducer && fitBySeats && fitByColor && fitByPopular && fitBySize && fitBySearch && fitByQuantity;
     });
