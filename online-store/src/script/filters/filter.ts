@@ -1,53 +1,25 @@
 import { data } from '../data';
 import { Boat } from '../../types/index';
-// import { sliderQuantity, sliderSize } from './setfilters/range_filters';
-import { getLocalStorage } from './localstorage';
-// import { select } from './setfilters/sort';
-// import { clearBtn, searchField } from './setfilters/search';
+import { valueFilters } from './setfilters/value_filters';
+import { rangeFilters } from './setfilters/range_filters';
+import { search } from './setfilters/search';
 
-export let filteredData: Boat[] = [];
-
-// export function addListenersToGetLocalStorage() {
-//     sliderSize.noUiSlider?.on('update', localStorage.getLocalStorage);
-//     sliderQuantity.noUiSlider?.on('update', localStorage.getLocalStorage);
-//     select.addEventListener('change', localStorage.getLocalStorage);
-//     searchField.addEventListener('keyup', localStorage.getLocalStorage);
-//     clearBtn.addEventListener('click', localStorage.getLocalStorage);
-//     document.querySelectorAll('.button1').forEach((button) => {
-//         button.addEventListener('click', localStorage.getLocalStorage);
-//     });
-//     document.querySelectorAll('.button2').forEach((button) => {
-//         button.addEventListener('click', localStorage.getLocalStorage);
-//     });
-//     document.querySelectorAll('.color-button').forEach((button) => {
-//         button.addEventListener('click', localStorage.getLocalStorage);
-//     });
-//     const popularBtn = document.querySelector('.favorite-button') as HTMLElement;
-//     popularBtn.addEventListener('click', localStorage.getLocalStorage);
-// }
+export let filteredData: Boat[];
 
 export function filterData() {
-    getLocalStorage();
     filteredData = data.filter((boat) => {
-        const fitByProducer =
-            localStorage.valueFilters.producer.length == 0 ||
-            localStorage.valueFilters.producer.includes(boat.producer);
-        const fitBySeats =
-            localStorage.valueFilters.seats.length == 0 || localStorage.valueFilters.seats.includes(boat.seats);
-        const fitByColor =
-            localStorage.valueFilters.color.length == 0 || localStorage.valueFilters.color.includes(boat.color);
+        const fitByProducer = valueFilters.producer.length == 0 || valueFilters.producer.includes(boat.producer);
+        const fitBySeats = valueFilters.seats.length == 0 || valueFilters.seats.includes(boat.seats);
+        const fitByColor = valueFilters.color.length == 0 || valueFilters.color.includes(boat.color);
         const fitByPopular =
-            localStorage.valueFilters.popular === false ||
-            (localStorage.valueFilters.popular === true && localStorage.valueFilters.popular === boat.favorite);
+            valueFilters.popular === false || (valueFilters.popular === true && valueFilters.popular === boat.favorite);
         const fitByQuantity =
-            (localStorage.rangeFilters.quantity[0] == '0' && localStorage.rangeFilters.quantity[1] == '10') ||
-            (localStorage.rangeFilters.quantity[0] <= boat.quantity &&
-                localStorage.rangeFilters.quantity[1] >= boat.quantity);
+            (rangeFilters.quantity[0] == '0' && rangeFilters.quantity[1] == '10') ||
+            (rangeFilters.quantity[0] <= boat.quantity && rangeFilters.quantity[1] >= boat.quantity);
         const fitBySize =
-            (localStorage.rangeFilters.size[0] == '250' && localStorage.rangeFilters.size[1] == '330') ||
-            (localStorage.rangeFilters.size[0] <= boat.size && localStorage.rangeFilters.size[1] >= boat.size);
-        const fitBySearch =
-            localStorage.search == undefined || boat.name.toLowerCase().includes(localStorage.search.toLowerCase());
+            (rangeFilters.size[0] == '250' && rangeFilters.size[1] == '330') ||
+            (rangeFilters.size[0] <= boat.size && rangeFilters.size[1] >= boat.size);
+        const fitBySearch = search == undefined || boat.name.toLowerCase().includes(search.toLowerCase());
         return fitByProducer && fitBySeats && fitByColor && fitByPopular && fitByQuantity && fitBySize && fitBySearch;
     });
     switch (localStorage.sort) {
@@ -96,5 +68,5 @@ export function filterData() {
             });
             break;
     }
-    return filteredData;
+    console.log(filteredData);
 }
