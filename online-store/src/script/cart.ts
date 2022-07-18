@@ -30,9 +30,11 @@ function getFavoritesValues() {
     document.querySelectorAll('.cart-button').forEach((button) => {
         button.addEventListener('click', addToCart);
         function addToCart() {
-            if (!button.classList.contains('cart-button-remove')) {
+            if (!button.classList.contains('cart-button-remove') && favorites.length < 20) {
                 button.classList.add('cart-button-remove');
                 if (button.textContent) favorites.push(button.textContent);
+            } else if (!button.classList.contains('cart-button-remove') && favorites.length == 20) {
+                alert('Простите, к сожалению, больше 20 штук в одни руки не выдаем...');
             } else {
                 button.classList.remove('cart-button-remove');
                 const index = favorites.indexOf(`${button.textContent}`);
