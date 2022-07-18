@@ -3,6 +3,7 @@ import { sliderQuantity, sliderSize } from './filters/setfilters/range_filters';
 import { select } from './filters/setfilters/sort';
 import { clearBtn, searchField } from './filters/setfilters/search';
 import { filteredData, filterData } from './filters/filter';
+import { setFavorites } from './cart';
 
 export function addListenersToCreateCards() {
     sliderSize.noUiSlider?.on('update', createCards);
@@ -22,13 +23,12 @@ export function addListenersToCreateCards() {
     (document.querySelector('.favorite-button') as HTMLElement).addEventListener('click', createCards);
 }
 
-function createCards() {
+export function createCards() {
     filterData();
     const fragment = document.createDocumentFragment() as DocumentFragment;
     const cardTemplate = document.querySelector('#card-template') as HTMLTemplateElement;
     filteredData.forEach((item) => {
         const cardClone = cardTemplate.content.cloneNode(true) as HTMLElement;
-
         (cardClone.querySelector(
             '.item-photo'
         ) as HTMLElement).style.backgroundImage = `url('./assets/img/goods/${item.num}.jpg')`;
@@ -41,12 +41,11 @@ function createCards() {
         (cardClone.querySelector('.item-favorite') as HTMLElement).textContent = item.favorite
             ? 'Популярный'
             : 'Непопулярный';
-        (cardClone.querySelector(
-            '.cart-button'
-        ) as HTMLElement).style.backgroundImage = `url('./assets/img/add_cart.svg')`;
+        (cardClone.querySelector('.cart-button') as HTMLElement).textContent = item.num;
         fragment.append(cardClone);
     });
 
     (document.querySelector('.cards-container') as HTMLElement).innerHTML = '';
     (document.querySelector('.cards-container') as HTMLElement).append(fragment);
+    setFavorites();
 }

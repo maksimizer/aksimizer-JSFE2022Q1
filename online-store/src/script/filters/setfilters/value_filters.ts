@@ -7,7 +7,7 @@ export let valueFilters: ValueFilters = {
     popular: false,
 };
 
-export function getValueFilters() {
+function getValueFilters() {
     const valueFiltersStr = localStorage.getItem('valueFilters');
     if (valueFiltersStr) {
         valueFilters = JSON.parse(valueFiltersStr);

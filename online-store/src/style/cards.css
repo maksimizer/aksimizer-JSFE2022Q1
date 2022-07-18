@@ -46,14 +46,20 @@ ul {
 }
 
 .cart-button {
-   width: 60px;
-   height: 60px;
-   background-position: center;
-   background-size: contain;
-   background-repeat: no-repeat;
-   cursor: pointer;
-   transition: 0.5s;
-   margin-bottom: 10px;
+    font-size: 0;
+    width: 60px;
+    height: 60px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-bottom: 10px;
+    background-image: url(../assets/img/add_cart.svg);
+}
+
+.cart-button-remove {
+    background-image: url(../assets/img/remove_cart.svg);
 }
 
 .cart-button:hover {
