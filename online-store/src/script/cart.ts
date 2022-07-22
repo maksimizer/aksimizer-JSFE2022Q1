@@ -1,46 +1,46 @@
-export let favorites: string[] = [];
+export let addedToCart: string[] = [];
 
-function getFavorites() {
-    const favoritesStr = localStorage.getItem('favorites');
-    if (favoritesStr) {
-        favorites = JSON.parse(favoritesStr);
+function getAddedToCart() {
+    const addedToCartStr = localStorage.getItem('addedToCart');
+    if (addedToCartStr) {
+        addedToCart = JSON.parse(addedToCartStr);
     }
-    return favorites;
+    return addedToCart;
 }
 
-export function setFavorites() {
-    getFavorites();
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-    const storagedStr = localStorage.getItem('favorites');
+export function setAddedToCart() {
+    getAddedToCart();
+    localStorage.setItem('addedToCart', JSON.stringify(addedToCart));
+    const storagedStr = localStorage.getItem('addedToCart');
     if (storagedStr) {
-        favorites = JSON.parse(storagedStr);
+        addedToCart = JSON.parse(storagedStr);
     }
     document.querySelectorAll('.cart-button').forEach((button) => {
         const value = button.textContent as string;
-        if (favorites.includes(value)) {
+        if (addedToCart.includes(value)) {
             button.classList.add('cart-button-remove');
         }
     });
 
-    getFavoritesValues();
+    addToCart();
     setCartCounter();
 }
 
-function getFavoritesValues() {
+function addToCart() {
     document.querySelectorAll('.cart-button').forEach((button) => {
         button.addEventListener('click', addToCart);
         function addToCart() {
-            if (!button.classList.contains('cart-button-remove') && favorites.length < 20) {
+            if (!button.classList.contains('cart-button-remove') && addedToCart.length < 20) {
                 button.classList.add('cart-button-remove');
-                if (button.textContent) favorites.push(button.textContent);
-            } else if (!button.classList.contains('cart-button-remove') && favorites.length == 20) {
+                if (button.textContent) addedToCart.push(button.textContent);
+            } else if (!button.classList.contains('cart-button-remove') && addedToCart.length == 20) {
                 alert('Простите, к сожалению, больше 20 штук в одни руки не выдаем...');
             } else {
                 button.classList.remove('cart-button-remove');
-                const index = favorites.indexOf(`${button.textContent}`);
-                favorites.splice(index, 1);
+                const index = addedToCart.indexOf(`${button.textContent}`);
+                addedToCart.splice(index, 1);
             }
-            localStorage.setItem('favorites', JSON.stringify(favorites));
+            localStorage.setItem('addedToCart', JSON.stringify(addedToCart));
             setCartCounter();
         }
     });
@@ -48,6 +48,6 @@ function getFavoritesValues() {
 
 function setCartCounter() {
     const cartDiv = document.querySelector('.cart') as HTMLElement;
-    const cartCounter = favorites.length;
+    const cartCounter = addedToCart.length;
     cartDiv.textContent = cartCounter.toString();
 }

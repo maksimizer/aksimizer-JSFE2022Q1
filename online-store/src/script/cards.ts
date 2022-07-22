@@ -3,7 +3,7 @@ import { sliderQuantity, sliderSize } from './filters/setfilters/range_filters';
 import { select } from './filters/setfilters/sort';
 import { clearBtn, searchField } from './filters/setfilters/search';
 import { filteredData, filterData } from './filters/filter';
-import { setFavorites } from './cart';
+import { setAddedToCart } from './cart';
 
 export function addListenersToCreateCards() {
     sliderSize.noUiSlider?.on('update', createCards);
@@ -11,10 +11,10 @@ export function addListenersToCreateCards() {
     select.addEventListener('change', createCards);
     searchField.addEventListener('keyup', createCards);
     clearBtn.addEventListener('click', createCards);
-    document.querySelectorAll('.button1').forEach((button) => {
+    document.querySelectorAll('.button-producer').forEach((button) => {
         button.addEventListener('click', createCards);
     });
-    document.querySelectorAll('.button2').forEach((button) => {
+    document.querySelectorAll('.button-seats').forEach((button) => {
         button.addEventListener('click', createCards);
     });
     document.querySelectorAll('.color-button').forEach((button) => {
@@ -47,5 +47,5 @@ export function createCards() {
 
     (document.querySelector('.cards-container') as HTMLElement).innerHTML = '';
     (document.querySelector('.cards-container') as HTMLElement).append(fragment);
-    setFavorites();
+    setAddedToCart();
 }

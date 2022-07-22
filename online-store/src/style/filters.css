@@ -37,8 +37,8 @@ h5 {
     align-items: center;
 }
 
-.button1,
-.button2 {
+.button-producer,
+.button-seats {
     padding: 3px;
     margin: 3px;
     font-size: 16px;
@@ -48,13 +48,13 @@ h5 {
     transition: 0.3s;
     border-radius: 10px;
 }
-.button2 {
+.button-seats {
     height: 27px;
     width: 27px;
     border-radius: 50%;
     }
-.button1:hover,
-.button2:hover,
+.button-producer:hover,
+.button-seats:hover,
 .color-button:hover,
 .favorite-button:hover,
 .button-clear:hover {
@@ -62,8 +62,8 @@ h5 {
     transform: scale(1.05);
 }
 
-.button1-active,
-.button2-active {   
+.button-producer-active,
+.button-seats-active {   
     background-color: rgba(0, 225, 225, 0.5);
 }
 

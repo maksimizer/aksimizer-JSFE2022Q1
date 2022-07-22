@@ -7,7 +7,7 @@ export let valueFilters: ValueFilters = {
     popular: false,
 };
 
-function getValueFilters() {
+function getStoragedValueFilters() {
     const valueFiltersStr = localStorage.getItem('valueFilters');
     if (valueFiltersStr) {
         valueFilters = JSON.parse(valueFiltersStr);
@@ -16,22 +16,22 @@ function getValueFilters() {
 }
 
 export function setValueFilters() {
-    getValueFilters();
+    getStoragedValueFilters();
     localStorage.setItem('valueFilters', JSON.stringify(valueFilters));
     const storagedStr = localStorage.getItem('valueFilters');
     if (storagedStr) {
         valueFilters = JSON.parse(storagedStr);
     }
-    document.querySelectorAll('.button1').forEach((button) => {
+    document.querySelectorAll('.button-producer').forEach((button) => {
         const value = button.textContent as string;
         if (valueFilters.producer.includes(value)) {
-            button.classList.add('button1-active');
+            button.classList.add('button-producer-active');
         }
     });
-    document.querySelectorAll('.button2').forEach((button) => {
+    document.querySelectorAll('.button-seats').forEach((button) => {
         const value = button.textContent as string;
         if (valueFilters.seats.includes(value)) {
-            button.classList.add('button2-active');
+            button.classList.add('button-seats-active');
         }
     });
     document.querySelectorAll('.color-button').forEach((button) => {
@@ -43,18 +43,18 @@ export function setValueFilters() {
     if (valueFilters.popular === true) {
         (document.querySelector('.favorite-button') as HTMLElement).classList.add('favorite-button-active');
     }
-    getValueFiltersValues();
+    getValueFilters();
 }
 
-function getValueFiltersValues() {
-    document.querySelectorAll('.button1').forEach((button) => {
+function getValueFilters() {
+    document.querySelectorAll('.button-producer').forEach((button) => {
         button.addEventListener('click', setProducerFilter);
         function setProducerFilter() {
-            if (!button.classList.contains('button1-active')) {
-                button.classList.add('button1-active');
+            if (!button.classList.contains('button-producer-active')) {
+                button.classList.add('button-producer-active');
                 if (button.textContent) valueFilters.producer.push(button.textContent);
             } else {
-                button.classList.remove('button1-active');
+                button.classList.remove('button-producer-active');
                 const index = valueFilters.producer.indexOf(`${button.textContent}`);
                 valueFilters.producer.splice(index, 1);
             }
@@ -62,14 +62,14 @@ function getValueFiltersValues() {
         }
     });
 
-    document.querySelectorAll('.button2').forEach((button) => {
+    document.querySelectorAll('.button-seats').forEach((button) => {
         button.addEventListener('click', setSeatsFilter);
         function setSeatsFilter() {
-            if (!button.classList.contains('button2-active')) {
-                button.classList.add('button2-active');
+            if (!button.classList.contains('button-seats-active')) {
+                button.classList.add('button-seats-active');
                 if (button.textContent) valueFilters.seats.push(button.textContent);
             } else {
-                button.classList.remove('button2-active');
+                button.classList.remove('button-seats-active');
                 const index = valueFilters.seats.indexOf(`${button.textContent}`);
                 valueFilters.seats.splice(index, 1);
             }
