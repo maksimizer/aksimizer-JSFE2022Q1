@@ -10,7 +10,9 @@ class AppModel {
   engine = `${this.baseURL}/engine`;
 
   getCars = async (page: number, limit = 7) => {
-    const responce = await fetch(`${this.garage}?_page=${page}&_limit=${limit}`);
+    const responce = await fetch(
+      `${this.garage}?_page=${page}&_limit=${limit}`,
+    );
     return {
       items: await responce.json(),
       count: responce.headers.get('X-Total-Count'),
@@ -20,26 +22,26 @@ class AppModel {
   getCar = async (id: number) => (await fetch(`${this.garage}/${id}`)).json();
 
   createCar = async (body: Car) => (
-      await fetch(this.garage, {
-        method: 'POST',
-        body: JSON.stringify(body),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-    ).json();
+    await fetch(this.garage, {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+  ).json();
 
   deleteCar = async (id: number) => (await fetch(`${this.garage}/${id}`, { method: 'DELETE' })).json();
 
   updateCar = async (id: number, body: Car) => (
-      await fetch(`${this.garage}/${id}`, {
-        method: 'PUT',
-        body: JSON.stringify(body),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-    ).json();
+    await fetch(`${this.garage}/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+  ).json();
 
   startEngine = async (id: number) => (await fetch(`${this.engine}?id=${id}&status=started`)).json();
 
@@ -47,7 +49,9 @@ class AppModel {
 
   driveCar = async (id: number) => {
     const result = await fetch(`${this.engine}?id=${id}&status=drive`).catch();
-    return result.status !== 200 ? { success: false } : { ...(await result.json()) };
+    return result.status !== 200
+      ? { success: false }
+      : { ...(await result.json()) };
   };
 
   getSortAndOrder = (sort: string, order: string) => {
@@ -66,33 +70,43 @@ class AppModel {
     sort: string;
     order: string;
   }) => {
-    const responce = await fetch(`${this.winners}?_page=${page}&_limit=${limit}${this.getSortAndOrder(sort, order)}`);
+    const responce = await fetch(
+      `${this.winners}?_page=${page}&_limit=${limit}${this.getSortAndOrder(
+        sort,
+        order,
+      )}`,
+    );
     const items = await responce.json();
     return {
-      items: await Promise.all(items.map(async (winner: Winner) => ({ ...winner, car: await this.getCar(winner.id) }))),
+      items: await Promise.all(
+        items.map(async (winner: Winner) => ({
+          ...winner,
+          car: await this.getCar(winner.id),
+        })),
+      ),
       count: responce.headers.get('X-Total-Count'),
     };
   };
 
   createWinner = async (body: Winner) => (
-      await fetch(this.winners, {
-        method: 'POST',
-        body: JSON.stringify(body),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-    ).json();
+    await fetch(this.winners, {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+  ).json();
 
   updateWinner = async (id: number, body: Winner) => (
-      await fetch(`${this.winners}/${id}`, {
-        method: 'PUT',
-        body: JSON.stringify(body),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-    ).json();
+    await fetch(`${this.winners}/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+  ).json();
 
   getWinner = async (id: number) => (await fetch(`${this.winners}/${id}`)).json();
 
@@ -119,4 +133,5 @@ class AppModel {
   };
 }
 
-export const appModel = new AppModel();
+const appModel = new AppModel();
+export default appModel;
