@@ -1,4 +1,4 @@
 import './index.css';
-import { appModel } from './model/appModel';
+import NavigationController from './controllers/navigationController';
 
-console.log(appModel.getCar(2));
+const navigationController = new NavigationController();
