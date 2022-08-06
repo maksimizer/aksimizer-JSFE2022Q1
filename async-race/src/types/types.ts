@@ -3,6 +3,12 @@ export interface Car {
   color: string;
 }
 
+export interface CarWithId extends Car {
+  id: number;
+}
+
+export type Cars = CarWithId[];
+
 export interface Winner {
   id: number;
   wins: number;

@@ -5,3 +5,137 @@
 html {
     height: 100%;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    color: #fff;
+    background: #000;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 24px;
+} 
+
+.button,
+input[type=button] {
+    height: 30px;
+    width: 100px;
+    cursor: pointer;
+    padding: 5px 5px;
+    background: linear-gradient(#fab617, #cc780a) #8b5c1d;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.button:hover, 
+input[type=button]:hover { 
+    background: linear-gradient(#fcc036, #fc940c) #b47523;
+};
+
+.button:active, 
+input[type=button]:active { 
+    background: linear-gradient(#fcc036, #fc940c) #b47523;
+}
+
+.garage-view {
+    display: flex;
+    flex-direction: column;
+}
+  
+.car-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+  
+.name-input,
+.update-name-input {
+    height: 30px;
+    width: 200px;
+}
+ 
+.car-creation-form,
+.car-update-form {
+    display: flex;
+    column-gap: 10px;
+}
+
+.color-input,
+.update-color-input {
+    height: 30px;
+    width: 50px;
+    cursor: pointer;
+}
+  
+.garage-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-top: 20px;
+}
+
+.garage {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.car-controls {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+.car-name {
+    margin-left: 30px;
+}
+
+.track {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px #ffffff dashed;
+}
+
+.button-start-engine,
+.button-stop-engine {
+    height: 20px;
+    width: 30px;
+    background: linear-gradient(#fab617, #cc780a) #8b5c1d;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button-start-engine:hover,
+.button-stop-engine:hover {
+    background: linear-gradient(#fcc036, #fc940c) #b47523;
+}
+
+.button-start-engine:active,
+.button-stop-engine:active {
+    background: linear-gradient(#fcc036, #fc940c) #b47523;
+}   
+
+.car-img {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.garage svg {
+    position: relative;
+    top: 10px;
+    width: 100px;
+    height: 50px;
+}
+
+.finish {
+    width: 50px;
+    height: 50px;
+    margin-right: 180px;
+    background-image: url('./assets/img/finish.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
