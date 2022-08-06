@@ -139,3 +139,21 @@ input[type=button]:active {
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+.winners-view, 
+.score {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.score-heading,
+.winner {
+    display: flex;
+}
+
+.score-heading span,
+.winner span {
+    width: 150px;
+    text-align: center;
+}
