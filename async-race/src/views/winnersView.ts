@@ -1,87 +1,70 @@
-import { Cars, CarWithId } from '../types/types';
+import { WinnerWithCar } from '../types/types';
 
-class GarageView {
-  render = (cars: Cars, carsCount: string | null, page: number) => {
-    const garageContainer = document.createElement('div');
-    garageContainer.classList.add('garage-view');
-    document.body.appendChild(garageContainer);
+class WinnersView {
+  render = (page: number, winners: WinnerWithCar[], winnersCount: string | null) => {
+    const winnersView = document.createElement('div');
+    winnersView.classList.add('winners-view');
+    document.body.appendChild(winnersView);
 
-    const carControls = this.renderCarControls();
-    const garage = this.renderGarage(cars, carsCount, page);
+    const winnersContainer = this.renderWinners(page, winners, winnersCount);
 
-    garageContainer.appendChild(carControls);
-    garageContainer.appendChild(garage);
+    winnersView.appendChild(winnersContainer);
   };
 
-  renderCarControls = () => {
-    const carControls = document.createElement('div');
-    carControls.classList.add('car-controls');
-    carControls.innerHTML = `
-      <div>
-      <form class="car-creation-form">
-          <input class="name-input" type="text" placeholder="Enter car name.">
-          <input class="color-input" type="color" value="#ffffff">
-          <input class="button-crate-car button" type="button" value="Create">
-      </form>
-      <form class="car-update-form">
-          <input class="update-name-input" type="text">
-          <input class="update-color-input" type="color" value="#ffffff">
-          <input class="button-update-car button" type="button" value="Update">
-      </form>
-      </div>
-      <div>
-        <button class="button-race button">Race</button>
-        <button class="button-reset button">Reset</button>
-        <button class="button-generate-cars button">Generate cars</button>
-      </div>
-    `;
-    return carControls;
-  };
-
-  renderGarage = (cars: Cars, сarsCount: string | null, page: number) => {
-    const garage = document.createElement('div');
-    garage.classList.add('garage-container');
-    garage.innerHTML = `
-      <span class="cars-count">Garage (${сarsCount})</span>
-      <span class="cars-page">Page ${page}</span>
-      <div class="garage">
-          ${cars.map((car) => `
-          <div class='car-${car.id}'>
-          ${this.renderCar(car)}
-          </div>`).join('')}
-      </div>
-      <div class="garage-pagination-buttons">
-          <button class="button garage-prev-button">Prev</button>
-          <button class="button garage-next-button">Next</button>
-      </div>
-    `;
-    return garage;
-  };
-
-  renderCar = (car: CarWithId) => {
-    const code = `
-      <div class="car-controls">
-        <button class="button button-select-car button-select-car-${car.id}">Select</button>
-        <button class="button button-remove-car button-remove-car-${car.id}">Remove</button>
-        <span class="car-name">${car.name}</span>
-      </div>
-      <div class="track">
-        <div>
-          <button class="button-start-engine button-start-engine-${car.id}">A</button>
-          <button class="button-stop-engine button-stop-engine-${car.id}">B</button>
-          <div class="car-img car-img-${car.id}">${this.renderCarImg(car.color)}</div> 
+  renderWinners = (page: number, winners: WinnerWithCar[], winnersCount: string | null) => {
+    const winnersDiv = document.createElement('div');
+    winnersDiv.classList.add('winners-container');
+    winnersDiv.innerHTML = `
+    <span class="winners-count">Winners (${winnersCount})</span>
+    <span class="winners-page">Page ${page}</span>
+    <div class="sort-and-order">
+      <select class="sort">
+        <option selected value="id">Sort by id</option>
+        <option value="wins">Sort by wins</option>
+        <option value="time">Sort by time</option>
+      </select>
+      <select class="order">
+        <option selected value="ASC">in asc order</option>
+        <option value="DESC">in desc order</option>
+      </select>
+    </div>
+      <div class="score">
+        <div class="score-heading">
+          <span>№</span>
+          <span>Car</span>
+          <span>Name</span>
+          <span>Wins</span>
+          <span>Best time</span>
+        </div class="winners">
+        ${winners.map((winner) => `
+        <div class='winner winner-${winner.id}'>
+        ${this.renderWinner(winner)}
+        </div>`).join('')}
         </div>
-        <div class="finish"></div>
-      </div>
+      <div class="winners-pagination-buttons">
+      <button class="button winners-prev-button">Prev</button>
+      <button class="button winners-next-button">Next</button>
+  </div>
+    `;
+    return winnersDiv;
+  };
+
+  renderWinner = (winner: WinnerWithCar) => {
+    const code = `
+      <span>${winner.id}</span>
+      <span class="winner-image winner-image-${winner.id}">${this.renderWinnerImg(winner.car.color)}</span>
+      <span>${winner.car.name}</span>
+      <span>${winner.wins}</span>
+      <span>${winner.time}</span>
     `;
     return code;
   };
 
-  renderCarImg = (color: string) => `
+  renderWinnerImg = (color: string) => `
     <?xml version="1.0" standalone="no"?>
   <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
   "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-  <svg width="150" height="56" version="1.0" xmlns="http://www.w3.org/2000/svg"
+  <svg width="50" height="25" version="1.0" xmlns="http://www.w3.org/2000/svg"
   width="1280.000000pt" height="1" viewBox="0 0 1280 1"
   preserveAspectRatio="xMidYMid meet">
   <metadata>
@@ -179,4 +162,4 @@ class GarageView {
   `;
 }
 
-export default GarageView;
+export default WinnersView;

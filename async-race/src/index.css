@@ -140,7 +140,7 @@ input[type=button]:active {
     background-repeat: no-repeat;
 }
 
-.winners-view, 
+.winners-container, 
 .score {
     display: flex;
     flex-direction: column;
@@ -156,4 +156,9 @@ input[type=button]:active {
 .winner span {
     width: 150px;
     text-align: center;
+}
+
+.sort-and-order {
+    display: flex;
+    height: 30px;
 }

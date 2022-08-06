@@ -55,36 +55,23 @@ class AppModel {
   };
 
   getSortAndOrder = (sort: string, order: string) => {
-    if (sort && order) return `&sort=${sort}&order=${order}`;
+    if (sort && order) return `&_sort=${sort}&_order=${order}`;
     return '';
   };
 
-  getWinners = async ({
-    page,
-    limit = 10,
-    sort,
-    order,
-  }: {
-    page: number;
-    limit: number;
-    sort: string;
-    order: string;
-  }) => {
+  getWinners = async (page: number, sort: string, order: string, limit = 10) => {
     const responce = await fetch(
-      `${this.winners}?_page=${page}&_limit=${limit}${this.getSortAndOrder(
-        sort,
-        order,
-      )}`,
+      `${this.winners}?_page=${page}&_limit=${limit}${this.getSortAndOrder(sort, order)}`,
     );
-    const items = await responce.json();
+    const winners = await responce.json();
     return {
-      items: await Promise.all(
-        items.map(async (winner: Winner) => ({
+      winners: await Promise.all(
+        winners.map(async (winner: Winner) => ({
           ...winner,
           car: await this.getCar(winner.id),
         })),
       ),
-      count: responce.headers.get('X-Total-Count'),
+      winnersCount: responce.headers.get('X-Total-Count'),
     };
   };
 
