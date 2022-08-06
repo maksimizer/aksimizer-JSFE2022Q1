@@ -1,17 +1,17 @@
-import { CarWithId, Cars } from "../types/types";
+import { Cars, CarWithId } from '../types/types';
 
 class GarageView {
   render = (cars: Cars, carsCount: string | null, page: number) => {
     const garageContainer = document.createElement('div');
     garageContainer.classList.add('garage-view');
     document.body.appendChild(garageContainer);
-    
+
     const carControls = this.renderCarControls();
     const garage = this.renderGarage(cars, carsCount, page);
-  
+
     garageContainer.appendChild(carControls);
     garageContainer.appendChild(garage);
-  } 
+  };
 
   renderCarControls = () => {
     const carControls = document.createElement('div');
@@ -42,10 +42,13 @@ class GarageView {
     const garage = document.createElement('div');
     garage.classList.add('garage-container');
     garage.innerHTML = `
-      <span class="cars-count">Garage ${сarsCount}</span>
+      <span class="cars-count">Garage (${сarsCount})</span>
       <span class="cars-page">Page ${page}</span>
       <div class="garage">
-          ${this.renderCars(cars)};
+          ${cars.map((car) => `
+          <div class='car-${car.id}'>
+          ${this.renderCar(car)}
+          </div>`).join('')}
       </div>
       <div class="garage-pagination-buttons">
           <button class="button garage-prev-button">prev</button>
@@ -55,27 +58,23 @@ class GarageView {
     return garage;
   };
 
-  renderCars = (cars: Cars) => {
-    cars.map(el => {
-      const car = document.createElement('div');
-      car.classList.add(`car car-${el.id}`);
-      car.innerHTML = `
-        <div class="car-controls">
-          <button class="button button-select-car button-select-car-${el.id}">Select</button>
-          <button class="button button-remove-car button-remove-car-${el.id}">Remove</button>
-          <span class="car-name">${el.name}</span>
+  renderCar = (car: CarWithId) => {
+    const code = `
+      <div class="car-controls">
+        <button class="button button-select-car button-select-car-${car.id}">Select</button>
+        <button class="button button-remove-car button-remove-car-${car.id}">Remove</button>
+        <span class="car-name">${car.name}</span>
+      </div>
+      <div class="track">
+        <div>
+          <button class="button-start-engine button-start-engine-${car.id}">A</button>
+          <button class="button-stop-engine button-stop-engine-${car.id}">B</button>
+          <div class="car-img car-img-${car.id}">${this.renderCarImg(car.color)}</div> 
         </div>
-        <div class="track">
-          <div>
-            <button class="button-start-engine button-start-engine-${el.id}">A</button>
-            <button class="button-stop-engine button-stop-engine-${el.id}">B</button>
-            <div class="car-img car-img-${el.id}">${this.renderCarImg(el.color)}</div> 
-          </div>
-          <div class="finish"></div>
-        </div>
-      `;
-    }).join('');
-
+        <div class="finish"></div>
+      </div>
+    `;
+    return code;
   };
 
   renderCarImg = (color: string) => `
@@ -177,8 +176,7 @@ class GarageView {
   130 22 193 51 l64 29 -19 23 c-65 82 -198 227 -209 227 -7 0 -15 -4 -19 -9z"/>
   </g>
   </svg>
-  `; 
-
+  `;
 }
 
 export default GarageView;

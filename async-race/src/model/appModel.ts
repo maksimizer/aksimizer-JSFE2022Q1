@@ -14,8 +14,8 @@ class AppModel {
       `${this.garage}?_page=${page}&_limit=${limit}`,
     );
     return {
-      items: await responce.json(),
-      count: responce.headers.get('X-Total-Count'),
+      cars: await responce.json(),
+      carsCount: responce.headers.get('X-Total-Count'),
     };
   };
 
@@ -133,5 +133,4 @@ class AppModel {
   };
 }
 
-const appModel = new AppModel();
-export default appModel;
+export default AppModel;

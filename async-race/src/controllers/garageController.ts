@@ -1,22 +1,22 @@
-import GarageView from "../views/garageView";
-import AppModel from "../model/appModel";
-import { Cars } from "../types/types";
+import GarageView from '../views/garageView';
+import AppModel from '../model/appModel';
 
 class GarageController {
   garageView: GarageView;
+
   appModel: AppModel;
+
   page: number;
-  
+
   constructor() {
     this.page = 1;
     this.appModel = new AppModel();
     this.garageView = new GarageView();
-    // this.garageView.render();
+    this.appModel.getCars(this.page).then(({ cars, carsCount }) => {
+      this.garageView.render(cars, carsCount, 1);
+      console.log(cars, carsCount);
+    });
   }
-  getData = async () => {
-    await this.appModel.getCars(this.page);
-  }
-
 }
 
 export default GarageController;
