@@ -4,6 +4,7 @@ class WinnersView {
   render = (page: number, winners: WinnerWithCar[], winnersCount: string | null) => {
     const winnersView = document.createElement('div');
     winnersView.classList.add('winners-view');
+    winnersView.classList.add('hidden');
     document.body.appendChild(winnersView);
 
     const winnersContainer = this.renderWinners(page, winners, winnersCount);

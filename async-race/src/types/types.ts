@@ -14,7 +14,7 @@ export interface Winner {
   wins: number;
   time: number;
 }
-export interface WinnerWithCar extends Winner{
+export interface WinnerWithCar extends Winner {
   car: CarWithId;
 }
 

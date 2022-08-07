@@ -162,3 +162,7 @@ input[type=button]:active {
     display: flex;
     height: 30px;
 }
+
+.hidden {
+    display: none;
+}
