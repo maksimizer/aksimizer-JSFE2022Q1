@@ -14,15 +14,15 @@ class NavigationController {
     (document.querySelector('.button-winners') as HTMLElement).addEventListener('click', this.showWinnersView);
   }
 
-  showGarageView = () => {
+  showGarageView() {
     (document.querySelector('.garage-view') as HTMLElement).classList.remove('hidden');
     (document.querySelector('.winners-view') as HTMLElement).classList.add('hidden');
-  };
+  }
 
-  showWinnersView = () => {
+  showWinnersView() {
     (document.querySelector('.winners-view') as HTMLElement).classList.remove('hidden');
     (document.querySelector('.garage-view') as HTMLElement).classList.add('hidden');
-  };
+  }
 }
 
 export default NavigationController;

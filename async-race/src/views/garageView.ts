@@ -21,7 +21,7 @@ class GarageView {
       <form class="car-creation-form">
           <input class="name-input" type="text" placeholder="Enter car name.">
           <input class="color-input" type="color" value="#ffffff">
-          <input class="button-crate-car button" type="button" value="Create">
+          <input class="button-create-car button" type="button" value="Create">
       </form>
       <form class="car-update-form">
           <input class="update-name-input" type="text">
