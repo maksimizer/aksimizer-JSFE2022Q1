@@ -1,16 +1,17 @@
 import { Cars, CarWithId } from '../types/types';
 
 class GarageView {
-  render = (cars: Cars, carsCount: string | null, page: number) => {
+  constructor() {
+    this.render();
+  }
+
+  render = () => {
     const garageContainer = document.createElement('div');
     garageContainer.classList.add('garage-view');
     document.body.appendChild(garageContainer);
 
     const carControls = this.renderCarControls();
-    const garage = this.renderGarage(cars, carsCount, page);
-
     garageContainer.appendChild(carControls);
-    garageContainer.appendChild(garage);
   };
 
   renderCarControls = () => {
@@ -21,7 +22,7 @@ class GarageView {
       <form class="car-creation-form">
           <input class="name-input" type="text" placeholder="Enter car name.">
           <input class="color-input" type="color" value="#ffffff">
-          <input class="button-create-car button" type="button" value="Create">
+          <input class="button-create-car button" type="button">
       </form>
       <form class="car-update-form">
           <input class="update-name-input" type="text">
@@ -55,7 +56,9 @@ class GarageView {
           <button class="button garage-next-button">Next</button>
       </div>
     `;
-    return garage;
+
+    const garageContainer = document.querySelector('.garage-view') as HTMLElement;
+    garageContainer.appendChild(garage);
   };
 
   renderCar = (car: CarWithId) => {

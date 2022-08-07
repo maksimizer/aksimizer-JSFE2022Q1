@@ -13,7 +13,7 @@ class GarageController {
     this.appModel = new AppModel();
     this.garageView = new GarageView();
     this.appModel.getCars(this.page).then(({ cars, carsCount }) => {
-      this.garageView.render(cars, carsCount, this.page);
+      this.garageView.renderGarage(cars, carsCount, this.page);
     });
   }
 }
