@@ -64,14 +64,14 @@ class GarageView {
   renderCar = (car: CarWithId) => {
     const code = `
       <div class="car-controls">
-        <button class="button button-select-car button-select-car-${car.id}">Select</button>
-        <button class="button button-remove-car button-remove-car-${car.id}">Remove</button>
+        <button class="button button-select-car" data-id="${car.id}">Select</button>
+        <button class="button button-remove-car" data-id="${car.id}">Remove</button>
         <span class="car-name">${car.name}</span>
       </div>
       <div class="track">
         <div>
-          <button class="button-start-engine button-start-engine-${car.id}">A</button>
-          <button class="button-stop-engine button-stop-engine-${car.id}">B</button>
+          <button class="button-start-engine" data-id="${car.id}">A</button>
+          <button class="button-stop-engine" data-id="${car.id}">B</button>
           <div class="car-img car-img-${car.id}">${this.renderCarImg(car.color)}</div> 
         </div>
         <div class="finish"></div>

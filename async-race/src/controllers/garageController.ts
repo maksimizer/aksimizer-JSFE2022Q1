@@ -33,13 +33,11 @@ class GarageController {
       name: nameInput.value,
       color: colorInput.value,
     };
-    if (nameInput.value.trim() !== '') {
-      this.appModel.createCar(newCar);
-      nameInput.value = '';
-      colorInput.value = '#ffffff';
-      (document.querySelector('.garage-container') as HTMLElement).remove();
-      this.updateGarage();
-    }
+    this.appModel.createCar(newCar);
+    nameInput.value = '';
+    colorInput.value = '#ffffff';
+    (document.querySelector('.garage-container') as HTMLElement).remove();
+    this.updateGarage();
   }
 }
 
