@@ -8,8 +8,11 @@ class GarageController {
 
   page: number;
 
+  selectedCarId: null | number;
+
   constructor() {
     this.page = 1;
+    this.selectedCarId = null;
     this.appModel = new AppModel();
     this.garageView = new GarageView();
     this.updateGarage();
@@ -27,13 +30,54 @@ class GarageController {
   addEventListeners() {
     (document.querySelector('.button-create-car') as HTMLElement).addEventListener('click', () => this.createCar());
     (document.querySelector('.garage-view') as HTMLElement).addEventListener('click', (event) => this.deleteCar(event));
+    (document.querySelector('.garage-view') as HTMLElement).addEventListener('click', (event) => this.selectCar(event));
+    (document.querySelector('.button-update-car') as HTMLElement).addEventListener('click', () => this.updateCar());
+  }
+
+  selectCar(event: Event) {
+    const nameUpdateInput = document.querySelector('.update-name-input') as HTMLInputElement;
+    const colorUpdateInput = document.querySelector('.update-color-input') as HTMLInputElement;
+    const target = event.target as HTMLElement;
+    if (target.classList.contains('button-select-car')) {
+      this.selectedCarId = Number(target.getAttribute('data-id'));
+      this.appModel.getCar(this.selectedCarId).then(({ name, color }) => {
+        nameUpdateInput.value = name;
+        colorUpdateInput.value = color;
+      });
+    }
+  }
+
+  unselectCar() {
+    const nameUpdateInput = document.querySelector('.update-name-input') as HTMLInputElement;
+    const colorUpdateInput = document.querySelector('.update-color-input') as HTMLInputElement;
+    this.selectedCarId = null;
+    nameUpdateInput.value = '';
+    colorUpdateInput.value = '#ffffff';
+  }
+
+  updateCar() {
+    const nameUpdateInput = document.querySelector('.update-name-input') as HTMLInputElement;
+    const colorUpdateInput = document.querySelector('.update-color-input') as HTMLInputElement;
+    const newCar = {
+      name: nameUpdateInput.value,
+      color: colorUpdateInput.value,
+    };
+    if (this.selectedCarId) {
+      this.appModel.updateCar(this.selectedCarId, newCar).then(() => {
+        this.unselectCar();
+        this.updateGarage();
+      });
+    }
   }
 
   deleteCar(event:Event) {
     const target = event.target as HTMLElement;
     if (target.classList.contains('button-remove-car')) {
       const id = Number(target.getAttribute('data-id'));
-      this.appModel.deleteCar(id).then(() => this.updateGarage());
+      this.appModel.deleteCar(id).then(() => {
+        if (id === this.selectedCarId) this.unselectCar();
+        this.updateGarage();
+      });
     }
   }
 
