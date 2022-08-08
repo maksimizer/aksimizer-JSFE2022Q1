@@ -1,5 +1,5 @@
-import WinnersView from '../views/winnersView';
-import AppModel from '../model/appModel';
+import { WinnersView, winnersView } from '../views/winnersView';
+import { AppModel, appModel } from '../model/appModel';
 
 class WinnersController {
   winnersView: WinnersView;
@@ -14,10 +14,10 @@ class WinnersController {
 
   constructor() {
     this.page = 1;
-    this.sort = 'wins';
-    this.order = 'desc';
-    this.appModel = new AppModel();
-    this.winnersView = new WinnersView();
+    this.sort = 'id';
+    this.order = 'asc';
+    this.appModel = appModel;
+    this.winnersView = winnersView;
     this.appModel.getWinners(this.page, this.sort, this.order).then(({ winners, winnersCount }) => {
       this.winnersView.render(this.page, winners, winnersCount);
     });

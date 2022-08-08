@@ -1,6 +1,6 @@
 import { Car, Winner } from '../types/types';
 
-class AppModel {
+export class AppModel {
   baseURL = 'http://127.0.0.1:3000';
 
   garage = `${this.baseURL}/garage`;
@@ -141,4 +141,4 @@ class AppModel {
   }
 }
 
-export default AppModel;
+export const appModel = new AppModel();

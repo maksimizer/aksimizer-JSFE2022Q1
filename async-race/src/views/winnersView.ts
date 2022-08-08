@@ -1,6 +1,6 @@
 import { WinnerWithCar } from '../types/types';
 
-class WinnersView {
+export class WinnersView {
   render = (page: number, winners: WinnerWithCar[], winnersCount: string | null) => {
     const winnersView = document.createElement('div');
     winnersView.classList.add('winners-view');
@@ -163,4 +163,4 @@ class WinnersView {
   `;
 }
 
-export default WinnersView;
+export const winnersView = new WinnersView();

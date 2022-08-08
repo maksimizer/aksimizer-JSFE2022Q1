@@ -1,4 +1,4 @@
-class NavigationView {
+export class NavigationView {
   render = () => {
     const nav = document.createElement('div');
     nav.classList.add('nav-view');
@@ -10,4 +10,4 @@ class NavigationView {
   };
 }
 
-export default NavigationView;
+export const navigationView: NavigationView = new NavigationView();

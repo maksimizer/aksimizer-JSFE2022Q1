@@ -1,10 +1,6 @@
 import { Cars, CarWithId } from '../types/types';
 
-class GarageView {
-  constructor() {
-    this.render();
-  }
-
+export class GarageView {
   render = () => {
     const garageContainer = document.createElement('div');
     garageContainer.classList.add('garage-view');
@@ -182,4 +178,4 @@ class GarageView {
   `;
 }
 
-export default GarageView;
+export const garageView = new GarageView();

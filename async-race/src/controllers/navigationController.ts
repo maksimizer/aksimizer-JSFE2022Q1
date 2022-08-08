@@ -1,10 +1,10 @@
-import NavigationView from '../views/navigationView';
+import { NavigationView, navigationView } from '../views/navigationView';
 
 class NavigationController {
   private navigationView: NavigationView;
 
   constructor() {
-    this.navigationView = new NavigationView();
+    this.navigationView = navigationView;
     this.navigationView.render();
     this.addNavEventlisteners();
   }

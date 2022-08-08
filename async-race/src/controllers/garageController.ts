@@ -1,5 +1,6 @@
-import GarageView from '../views/garageView';
-import AppModel from '../model/appModel';
+import { garageView, GarageView } from '../views/garageView';
+import { appModel, AppModel } from '../model/appModel';
+import { winnersView, WinnersView } from '../views/winnersView';
 
 class GarageController {
   garageView: GarageView;
@@ -12,12 +13,16 @@ class GarageController {
 
   carsCount: number;
 
+  winnersView: WinnersView;
+
   constructor() {
     this.carsCount = 0;
     this.page = 1;
     this.selectedCarId = null;
-    this.appModel = new AppModel();
-    this.garageView = new GarageView();
+    this.appModel = appModel;
+    this.garageView = garageView;
+    this.winnersView = winnersView;
+    this.garageView.render();
     this.updateGarage();
     this.addEventListeners();
   }
