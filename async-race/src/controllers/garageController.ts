@@ -10,7 +10,10 @@ class GarageController {
 
   selectedCarId: null | number;
 
+  carsCount: number;
+
   constructor() {
+    this.carsCount = 0;
     this.page = 1;
     this.selectedCarId = null;
     this.appModel = new AppModel();
@@ -24,6 +27,7 @@ class GarageController {
     if (garage) garage.remove();
     this.appModel.getCars(this.page).then(({ cars, carsCount }) => {
       this.garageView.renderGarage(cars, carsCount, this.page);
+      this.carsCount = Number(carsCount);
     });
   }
 
@@ -33,6 +37,8 @@ class GarageController {
     (document.querySelector('.garage-view') as HTMLElement).addEventListener('click', (event) => this.selectCar(event));
     (document.querySelector('.button-update-car') as HTMLElement).addEventListener('click', () => this.updateCar());
     (document.querySelector('.button-generate-cars') as HTMLElement).addEventListener('click', () => this.generateCars());
+    (document.querySelector('.garage-view') as HTMLElement).addEventListener('click', (event) => this.goToPrevPage(event));
+    (document.querySelector('.garage-view') as HTMLElement).addEventListener('click', (event) => this.goToNextPage(event));
   }
 
   selectCar(event: Event) {
@@ -98,6 +104,22 @@ class GarageController {
     const newCars = new Array(100).fill(1).map(this.appModel.getRandomCar);
     newCars.forEach((car) => this.appModel.createCar(car));
     this.updateGarage();
+  }
+
+  goToPrevPage(event: Event) {
+    const target = event.target as HTMLElement;
+    if (target.classList.contains('garage-prev-button') && this.page > 1) {
+      this.page -= 1;
+      this.updateGarage();
+    }
+  }
+
+  goToNextPage(event: Event) {
+    const target = event.target as HTMLElement;
+    if (target.classList.contains('garage-next-button') && (this.carsCount / this.page) > 7) {
+      this.page += 1;
+      this.updateGarage();
+    }
   }
 }
 
