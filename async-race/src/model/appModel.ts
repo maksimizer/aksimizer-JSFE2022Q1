@@ -118,6 +118,27 @@ class AppModel {
       });
     }
   };
+
+  getRandomCar() {
+    const producers = ['Tesla', 'Mercedes', 'BMW', 'Toyota', 'Lada', 'Opel', 'Aston Martin', 'Lotus', 'Cherry', 'Renault', 'Peugeot'];
+    const models = ['Kalina', 'Granta', 'Model S', 'GLX', 'GLK', 'Passat', 'Golf', 'Logan', '911', 'Zafira', 'Camry', 'Amulet'];
+    const randomProducer = producers[Math.ceil(Math.random() * producers.length)];
+    const randomModel = models[Math.floor(Math.random() * producers.length)];
+    const randomName = `${randomProducer} ${randomModel}`;
+
+    const chars = '0123456789ABCDEF';
+    let randomColor = '#';
+    for (let i = 0; i < 6; i += 1) {
+      randomColor += chars[Math.floor(Math.random() * chars.length)];
+    }
+
+    const randomCar = {
+      name: randomName,
+      color: randomColor,
+    };
+
+    return randomCar;
+  }
 }
 
 export default AppModel;

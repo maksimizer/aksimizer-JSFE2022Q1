@@ -32,6 +32,7 @@ class GarageController {
     (document.querySelector('.garage-view') as HTMLElement).addEventListener('click', (event) => this.deleteCar(event));
     (document.querySelector('.garage-view') as HTMLElement).addEventListener('click', (event) => this.selectCar(event));
     (document.querySelector('.button-update-car') as HTMLElement).addEventListener('click', () => this.updateCar());
+    (document.querySelector('.button-generate-cars') as HTMLElement).addEventListener('click', () => this.generateCars());
   }
 
   selectCar(event: Event) {
@@ -91,6 +92,12 @@ class GarageController {
     nameInput.value = '';
     colorInput.value = '#ffffff';
     this.appModel.createCar(newCar).then(() => this.updateGarage());
+  }
+
+  generateCars() {
+    const newCars = new Array(100).fill(1).map(this.appModel.getRandomCar);
+    newCars.forEach((car) => this.appModel.createCar(car));
+    this.updateGarage();
   }
 }
 
