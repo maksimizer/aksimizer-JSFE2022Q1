@@ -7,28 +7,38 @@ export class WinnersView {
     winnersView.classList.add('hidden');
     document.body.appendChild(winnersView);
 
-    const winnersContainer = this.renderWinners(page, winners, winnersCount);
+    const winnersControls = this.renderWinnersControls(page, winnersCount);
+    winnersView.appendChild(winnersControls);
 
+    const winnersContainer = this.renderWinnersContainer(winners);
     winnersView.appendChild(winnersContainer);
   };
 
-  renderWinners = (page: number, winners: WinnerWithCar[], winnersCount: string | null) => {
-    const winnersDiv = document.createElement('div');
-    winnersDiv.classList.add('winners-container');
-    winnersDiv.innerHTML = `
-    <span class="winners-count">Winners (${winnersCount})</span>
-    <span class="winners-page">Page ${page}</span>
-    <div class="sort-and-order">
-      <select class="sort">
-        <option selected value="id">Sort by id</option>
-        <option value="wins">Sort by wins</option>
-        <option value="time">Sort by time</option>
-      </select>
-      <select class="order">
-        <option selected value="ASC">in asc order</option>
-        <option value="DESC">in desc order</option>
-      </select>
-    </div>
+  renderWinnersControls = (page: number, winnersCount: string | null) => {
+    const winnersControls = document.createElement('div');
+    winnersControls.classList.add('winners-controls');
+    winnersControls.innerHTML = `
+      <span class="winners-count">Winners (${winnersCount})</span>
+      <span class="winners-page">Page ${page}</span>
+      <div class="sort-and-order">
+        <select class="sort">
+          <option selected value="id">Sort by id</option>
+          <option value="wins">Sort by wins</option>
+          <option value="time">Sort by time</option>
+        </select>
+        <select class="order">
+          <option selected value="ASC">in asc order</option>
+          <option value="DESC">in desc order</option>
+        </select>
+      </div>
+    `;
+    return winnersControls;
+  };
+
+  renderWinnersContainer = (winners: WinnerWithCar[]) => {
+    const winnersContainer = document.createElement('div');
+    winnersContainer.classList.add('winners-container');
+    winnersContainer.innerHTML = `
       <div class="score">
         <div class="score-heading">
           <span>№</span>
@@ -47,7 +57,7 @@ export class WinnersView {
       <button class="button winners-next-button">Next</button>
   </div>
     `;
-    return winnersDiv;
+    return winnersContainer;
   };
 
   renderWinner = (winner: WinnerWithCar) => {
