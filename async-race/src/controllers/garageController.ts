@@ -27,6 +27,17 @@ class GarageController {
     });
   }
 
+  updateWinners() {
+    const winnersContainer = (document.querySelector('.winners-container') as HTMLElement);
+    this.appModel.getWinners(this.appModel.winnersPage, this.appModel.sort, this.appModel.order)
+      .then(({ winners, winnersCount }) => {
+        if (winnersContainer) winnersContainer.remove();
+        const newWinnersContainer = this.winnersView.renderWinnersContainer(winners);
+        this.appModel.winnersCount = Number(winnersCount);
+        (document.querySelector('.winners-view') as HTMLElement).appendChild(newWinnersContainer);
+      });
+  }
+
   addEventListeners() {
     (document.querySelector('.button-create-car') as HTMLElement).addEventListener('click', () => this.createCar());
     (document.querySelector('.garage-view') as HTMLElement).addEventListener('click', (event) => this.deleteCar(event));
@@ -69,6 +80,7 @@ class GarageController {
       this.appModel.updateCar(this.appModel.selectedCarId, newCar).then(() => {
         this.unselectCar();
         this.updateGarage();
+        this.updateWinners();
       });
     }
   }
@@ -80,6 +92,9 @@ class GarageController {
       this.appModel.deleteCar(id).then(() => {
         if (id === this.appModel.selectedCarId) this.unselectCar();
         this.updateGarage();
+      });
+      this.appModel.deleteWinner(id).then(() => {
+        this.updateWinners();
       });
     }
   }
