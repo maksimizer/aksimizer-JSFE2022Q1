@@ -7,18 +7,9 @@ class GarageController {
 
   appModel: AppModel;
 
-  page: number;
-
-  selectedCarId: null | number;
-
-  carsCount: number;
-
   winnersView: WinnersView;
 
   constructor() {
-    this.carsCount = 0;
-    this.page = 1;
-    this.selectedCarId = null;
     this.appModel = appModel;
     this.garageView = garageView;
     this.winnersView = winnersView;
@@ -30,9 +21,9 @@ class GarageController {
   updateGarage() {
     const garage = document.querySelector('.garage-container') as HTMLElement;
     if (garage) garage.remove();
-    this.appModel.getCars(this.page).then(({ cars, carsCount }) => {
-      this.garageView.renderGarage(cars, carsCount, this.page);
-      this.carsCount = Number(carsCount);
+    this.appModel.getCars(this.appModel.garagePage).then(({ cars, carsCount }) => {
+      this.garageView.renderGarage(cars, carsCount, this.appModel.garagePage);
+      this.appModel.carsCount = Number(carsCount);
     });
   }
 
@@ -51,8 +42,8 @@ class GarageController {
     const colorUpdateInput = document.querySelector('.update-color-input') as HTMLInputElement;
     const target = event.target as HTMLElement;
     if (target.classList.contains('button-select-car')) {
-      this.selectedCarId = Number(target.getAttribute('data-id'));
-      this.appModel.getCar(this.selectedCarId).then(({ name, color }) => {
+      this.appModel.selectedCarId = Number(target.getAttribute('data-id'));
+      this.appModel.getCar(this.appModel.selectedCarId).then(({ name, color }) => {
         nameUpdateInput.value = name;
         colorUpdateInput.value = color;
       });
@@ -62,7 +53,7 @@ class GarageController {
   unselectCar() {
     const nameUpdateInput = document.querySelector('.update-name-input') as HTMLInputElement;
     const colorUpdateInput = document.querySelector('.update-color-input') as HTMLInputElement;
-    this.selectedCarId = null;
+    this.appModel.selectedCarId = null;
     nameUpdateInput.value = '';
     colorUpdateInput.value = '#ffffff';
   }
@@ -74,8 +65,8 @@ class GarageController {
       name: nameUpdateInput.value,
       color: colorUpdateInput.value,
     };
-    if (this.selectedCarId) {
-      this.appModel.updateCar(this.selectedCarId, newCar).then(() => {
+    if (this.appModel.selectedCarId) {
+      this.appModel.updateCar(this.appModel.selectedCarId, newCar).then(() => {
         this.unselectCar();
         this.updateGarage();
       });
@@ -87,7 +78,7 @@ class GarageController {
     if (target.classList.contains('button-remove-car')) {
       const id = Number(target.getAttribute('data-id'));
       this.appModel.deleteCar(id).then(() => {
-        if (id === this.selectedCarId) this.unselectCar();
+        if (id === this.appModel.selectedCarId) this.unselectCar();
         this.updateGarage();
       });
     }
@@ -113,16 +104,16 @@ class GarageController {
 
   goToPrevPage(event: Event) {
     const target = event.target as HTMLElement;
-    if (target.classList.contains('garage-prev-button') && this.page > 1) {
-      this.page -= 1;
+    if (target.classList.contains('garage-prev-button') && this.appModel.garagePage > 1) {
+      this.appModel.garagePage -= 1;
       this.updateGarage();
     }
   }
 
   goToNextPage(event: Event) {
     const target = event.target as HTMLElement;
-    if (target.classList.contains('garage-next-button') && (this.carsCount / this.page) > 7) {
-      this.page += 1;
+    if (target.classList.contains('garage-next-button') && (this.appModel.carsCount / this.appModel.garagePage) > 7) {
+      this.appModel.garagePage += 1;
       this.updateGarage();
     }
   }

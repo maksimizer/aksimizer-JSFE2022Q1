@@ -9,6 +9,30 @@ export class AppModel {
 
   engine = `${this.baseURL}/engine`;
 
+  carsCount: number;
+
+  garagePage: number;
+
+  selectedCarId: null | number;
+
+  winnersPage: number;
+
+  sort: string;
+
+  order: string;
+
+  winnersCount: number;
+
+  constructor() {
+    this.carsCount = 0;
+    this.winnersCount = 0;
+    this.garagePage = 1;
+    this.winnersPage = 1;
+    this.selectedCarId = null;
+    this.sort = 'id';
+    this.order = 'asc';
+  }
+
   getCars = async (page: number, limit = 7) => {
     const responce = await fetch(
       `${this.garage}?_page=${page}&_limit=${limit}`,
