@@ -1,7 +1,7 @@
 import { WinnerWithCar } from '../types/types';
 
 export class WinnersView {
-  render = (page: number, winners: WinnerWithCar[], winnersCount: string | null) => {
+  render = (page: number, winnersCount: string | null) => {
     const winnersView = document.createElement('div');
     winnersView.classList.add('winners-view');
     winnersView.classList.add('hidden');
@@ -9,9 +9,6 @@ export class WinnersView {
 
     const winnersControls = this.renderWinnersControls(page, winnersCount);
     winnersView.appendChild(winnersControls);
-
-    const winnersContainer = this.renderWinnersContainer(winners);
-    winnersView.appendChild(winnersContainer);
   };
 
   renderWinnersControls = (page: number, winnersCount: string | null) => {
@@ -27,8 +24,8 @@ export class WinnersView {
           <option value="time">Sort by time</option>
         </select>
         <select class="order">
-          <option selected value="ASC">in asc order</option>
-          <option value="DESC">in desc order</option>
+          <option elected value="asc">in asc order</option>
+          <option value="desc">in desc order</option>
         </select>
       </div>
     `;
@@ -57,7 +54,8 @@ export class WinnersView {
       <button class="button winners-next-button">Next</button>
   </div>
     `;
-    return winnersContainer;
+    const winnersView = document.querySelector('.winners-view') as HTMLElement;
+    winnersView.appendChild(winnersContainer);
   };
 
   renderWinner = (winner: WinnerWithCar) => {

@@ -33,6 +33,11 @@ export class AppModel {
     this.order = 'asc';
   }
 
+  setSortAndOrder() {
+    this.sort = (document.querySelector('.sort') as HTMLSelectElement).value;
+    this.order = (document.querySelector('.order') as HTMLSelectElement).value;
+  }
+
   getCars = async (page: number, limit = 7) => {
     const responce = await fetch(
       `${this.garage}?_page=${page}&_limit=${limit}`,

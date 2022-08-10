@@ -32,9 +32,8 @@ class GarageController {
     this.appModel.getWinners(this.appModel.winnersPage, this.appModel.sort, this.appModel.order)
       .then(({ winners, winnersCount }) => {
         if (winnersContainer) winnersContainer.remove();
-        const newWinnersContainer = this.winnersView.renderWinnersContainer(winners);
+        this.winnersView.renderWinnersContainer(winners);
         this.appModel.winnersCount = Number(winnersCount);
-        (document.querySelector('.winners-view') as HTMLElement).appendChild(newWinnersContainer);
       });
   }
 
