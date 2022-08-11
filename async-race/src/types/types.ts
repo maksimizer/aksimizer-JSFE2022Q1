@@ -19,3 +19,8 @@ export interface WinnerWithCar extends Winner {
 }
 
 export type Winners = Winner[];
+
+export type DriveParams = {
+  velocity: number;
+  distance: number;
+};

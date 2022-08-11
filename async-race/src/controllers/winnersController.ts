@@ -20,6 +20,8 @@ class WinnersController {
 
   addEventListeners() {
     (document.querySelector('.winners-view') as HTMLSelectElement).addEventListener('change', () => this.sortAndOrder());
+    (document.querySelector('.winners-view') as HTMLElement).addEventListener('click', (event) => this.goToPrevPage(event));
+    (document.querySelector('.winners-view') as HTMLElement).addEventListener('click', (event) => this.goToNextPage(event));
   }
 
   sortAndOrder() {
@@ -35,6 +37,22 @@ class WinnersController {
         this.winnersView.renderWinnersContainer(winners);
         this.appModel.winnersCount = Number(winnersCount);
       });
+  }
+
+  goToPrevPage(event: Event) {
+    const target = event.target as HTMLElement;
+    if (target.classList.contains('winners-prev-button') && this.appModel.winnersPage > 1) {
+      this.appModel.winnersPage -= 1;
+      this.updateWinnersContainer();
+    }
+  }
+
+  goToNextPage(event: Event) {
+    const target = event.target as HTMLElement;
+    if (target.classList.contains('winners-next-button') && (this.appModel.winnersCount / this.appModel.winnersPage) > 7) {
+      this.appModel.winnersPage += 1;
+      this.updateWinnersContainer();
+    }
   }
 }
 

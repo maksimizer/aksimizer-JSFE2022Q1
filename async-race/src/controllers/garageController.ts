@@ -34,6 +34,7 @@ class GarageController {
         if (winnersContainer) winnersContainer.remove();
         this.winnersView.renderWinnersContainer(winners);
         this.appModel.winnersCount = Number(winnersCount);
+        (document.querySelector('.winners-count') as HTMLElement).textContent = `Winners(${winnersCount})`;
       });
   }
 
