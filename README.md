@@ -1,4 +1,4 @@
-Video: 
+Video: https://youtu.be/1nw6uKiFDyM
 
 Reveal presentation's deploy: https://rolling-scopes-school.github.io/maksimizer-JSFE2022Q1/presentation/
 
